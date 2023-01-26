@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="output-style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+  <title>Tailwind css by cli</title>
+
+</head>
+
+<body class=" font-oswaldRegular">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <div class="hidden pt-6  md:sticky top-0 z-50 bg-white  md:block">
+    <ul class="bg-white flex justify-between text-center max-w-[1170px]  mx-auto  ">
+      <ul class="w-1/6	flex justify-between ">
+        <li class=" text-base font-oswaldSemiBold">
+          <span>EUR - Euro</span>
+        </li>
+        <li class=" text-base flex">
+          <span class=" font-oswaldSemiBold">English</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-6 h-4  font-oswaldSemiBold">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+
+        </li>
+      </ul>
+      <li class=" text-base  relative bottom-1 w-1/3">
+        <form action=""
+          class="rounded-3xl border border-solid	 h-9 border-slate-400 w-full max-w-sm	flex justify-between">
+
+          <input class=" placeholder-gray-600 decoration-black text-sm p-2 mx-6" type="text" id="fname"
+            placeholder="Type your Part# *">
+          <input class="  text-white bg-customred	rounded-2xl	 m-1 w-20" type="submit" value="Search">
+        </form>
+      </li>
+      <ul class="flex w-64 justify-between">
+        <li class=" text-base ">
+          <div class=""><img src="https://yourspareparts.com/media/wysiwyg/Vector.png" width="30" height="20" alt="">
+          </div>
+        </li>
+        <li class="text-base ">
+          <div class=""><img
+              src="https://yourspareparts.com/static/version1666075195/frontend/Spare/Parts/en_IE/images/productimages/towishlistblack.png">
+          </div>
+        </li>
+        <li class=" text-base ">
+          <span class="">0</span>
+        </li>
+        <li class=" text-base ">
+          <div class=""><img
+              src="https://yourspareparts.com/static/version1666075195/frontend/Spare/Parts/en_IE/images/header/shoppingcart.png">
+          </div>
+
+        </li>
+        <li class=" text-base  ">
+          <input class=" p-3 w-28  text-white bg-customred	rounded-3xl	  relative bottom-3 " type="submit"
+            value="Sign In">
+        </li>
+      </ul>
+    </ul>
+
+  </div>
+
+
+
+
+
+
+
+  <!-- Navbar goes here -->
+  <nav class="bg-black shadow-lg">
+    <div class="max-w-6xl mx-auto px-5 py-8 md:px-6 md:py-0">
+      <div class="flex justify-between">
+        <div class="flex justify-between w-full">
+          <!-- Website Logo -->
+          <div>
+            <a href="#" class="flex items-center md:py-4 md:px-2 w-11/12">
+              <img src="https://yourspareparts.com/media/logo/stores/1/Group_725_1.png" title="" alt="" width="295"
+                height="69">
+
+              >
+            </a>
+          </div>
+          <!-- Primary Navbar items -->
+          <div class="hidden md:flex items-center justify-between w-1/2 ">
+
+              <a href="" class="text-base h-full  w-1/2 bg-customred" style="clip-path: polygon(41% 0, 100% 0%, 61% 100%, 0% 100%);
+            "> <span class="text-white 	 relative top-9 left-8 ">Home</span></a>
+              <a href="" class="text-base w-1/2"> <span class="text-white">Brands</span></a>
+              <a href="" class="text-base w-1/2"> <span class="text-white">About Us</span>
+              </a>
+              <a href="" class="text-base w-1/2"> <span class="text-white">Contact Us</span>
+              </a>
+              <a href="" class="text-base w-1/2">
+                <span class="text-white">Parts Search Help</span></a>
+          </div>
+          <!-- Secondary Navbar items -->
+					<div class="hidden md:hidden  items-center space-x-3 ">
+						<a href="" class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300">Log In</a>
+						<a href="" class="py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300">Sign Up</a>
+					</div>
+					<!-- Mobile menu button -->
+					<div class="md:hidden flex items-center w-[3.25rem]">
+						<button class="outline-none mobile-menu-button">
+						<img src="https://yourspareparts.com/static/version1667909730/frontend/Spare/Parts/en_IE/images/header/mobileheadericon.png">
+							<path d="M4 6h16M4 12h16M4 18h16"></path>
+						</svg>
+					</button>
+					</div>
+        </div>
+      </div>
+    </div>
+    <!-- mobile menu -->
+			<div class="hidden mobile-menu fixed z-20 top-0 left-0 h-full bg-customred ">
+        
+			  <div class=" flex justify-between flex-col">
+           <div class="border-b border-[#d7d7d7] text-center h-[71px] pt-[24px]">
+          <a class="text-white text-xl font-oswaldSemiBold text-center" data-toggle="switch" href="#store.menu">
+            Menu                    </a>
+          </div>
+          <div>
+           
+              <ul class="uppercase p-4">
+                
+                <li class="m-0 border-t border-[#d1d1d1]  h-[55px] text-center pt-4">
+                  <a href="https://yourspareparts.com/home.html" class=" text-white font-bold pt-2 pr-10 pb-2 pl-4 text-base" id="ui-id-4" tabindex="-1" role="menuitem"><span>Home</span></a>
+                  
+                </li> 
+                <li class="m-0 border-t border-[#d1d1d1] h-[55px] text-center pt-4">
+                  <a href="https://yourspareparts.com/shop.html" class=" text-base text-white font-bold pt-2 pr-10 pb-2 pl-4"id="ui-id-5" tabindex="-1" role="menuitem"><span>Brands</span></a>
+                </li> 
+                <li class="m-0 border-t border-[#d1d1d1]  h-[55px] text-center pt-4">
+                  <a href="https://yourspareparts.com/about-us.html" class=" text-base text-white font-bold pt-2 pr-10 pb-2 pl-4" id="ui-id-6" tabindex="-1" role="menuitem"><span>About Us</span></a>
+                </li> 
+                <li class="m-0 border-t border-[#d1d1d1]  h-[55px] text-center pt-4">
+                  <a href="https://yourspareparts.com/contact-us.html"class=" text-base text-white font-bold pt-2 pr-10 pb-2 pl-4" id="ui-id-7" tabindex="-1" role="menuitem"><span>Contact Us</span></a>
+                </li> 
+                <li class="m-0 border-t border-[#d1d1d1]  h-[55px] text-center pt-4">
+                  <a href="https://yourspareparts.com/p-n-help.html" class="text-base text-white font-bold pt-2 pr-10 pb-2 pl-4" id="ui-id-8" tabindex="-1" role="menuitem"><span>Parts Search Help</span></a>
+                </li> 
+                <li class="m-0 border-t border-[#d1d1d1]  h-[55px] text-center pt-4">
+                  <a href="https://yourspareparts.com/blog.html" class=" text-base text-white font-bold pt-2 pr-10 pb-2 pl-4" aria-haspopup="true" id="ui-id-6" tabindex="-1" role="menuitem">
+                    <span>Blog</span>
+        </a>
+                </li>
+              </ul>
+
+
+
+          </div>
+
+         </div>
+       
+			</div>
+			<script>
+				const btn = document.querySelector("button.mobile-menu-button");
+				const menu = document.querySelector(".mobile-menu");
+
+				btn.addEventListener("click", () => {
+					menu.classList.toggle("hidden");
+				});
+			</script>
+  </nav>
+
+
+
+
+
+
+
+
+
+
+  <!--<div class=" overflow-hidden  items-center">
+    <div class="bg-black">
+      <ul class="bg-black flex justify-between text-center max-w-[1170px]  mx-auto  ">
+        <li class=" text-base my-4">
+          <img src="https://yourspareparts.com/media/logo/stores/1/Group_725_1.png" title="" alt="" width="295"
+            height="69">
+        </li>
+        <ul class=" flex justify-between w-3/6 items-center">
+          <li class="text-base h-full w-3/12 bg-customred" style="clip-path: polygon(41% 0, 100% 0%, 61% 100%, 0% 100%);
+        ">
+            <a>
+              <span class="text-white 	 relative top-9">Home</span>
+            </a>
+          </li>
+          <li class="text-base	">
+            <a>
+              <span class="text-white">Brands</span>
+            </a>
+          </li>
+          <li class="text-base	">
+            <a>
+              <span class="text-white">About Us</span>
+            </a>
+          </li>
+          <li class="text-base	">
+
+            <a>
+              <span class="text-white">Contact Us</span>
+            </a>
+          </li>
+          <li class="text-base	">
+            <a>
+              <span class="text-white">Parts Search Help</span>
+            </a>
+          </li>
+        </ul>
+        
+
+
+
+
+
+      </ul>
+
+
+
+    </div>
+  -->
+
+
+
+    <!-- Slider main container -->
+    <div class="swiper w-full relative h-[19rem]  md:h-full">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide h-2/3"> <img class="w-full h-full"
+            src="https://yourspareparts.com/static/version1666075195/frontend/Spare/Parts/en_IE/images/banner/ag-pexel-wide-anonamised-cvr-1.webp"
+            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        </div>
+
+        <div class="swiper-slide "><img class="w-full h-full"
+            src="https://yourspareparts.com/static/version1666075195/frontend/Spare/Parts/en_IE/images/banner/hero-img.webp"
+            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        </div>
+        <div class="swiper-slide"><img class="w-full h-full"
+            src="https://yourspareparts.com/static/version1666075195/frontend/Spare/Parts/en_IE/images/banner/muni-picture-wide-1920-600-cvr-1.webp"
+            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="absolute z-10  top-[11rem]  md:top-1/3		w-full	 md:left-1/4 md:w-1/2	 text-center">
+      <div class="md:w-full w-[17rem] m-auto text-customred md:text-3xl  italic  md:mb-4 text-lg ">
+        <p>This site is still under construction - soon to be extended</p>
+      </div>
+      <div class=" text-white md:text-3xl mb-12 md:mb-4  font-oswaldBold text-2xl ">
+        <p class="">The Widest Selection <span>Of Industrial Parts</span></p>
+      </div>
+      <div class=" text-base  relative bottom-1  h-full">
+        <form action=""
+          class=" overflow-hidden rounded-full border border-solid	 border-slate-400 mx-4 md:mx-0 md:w-full	bg-white flex justify-between h-[4rem] md:h-24">
+
+          <input class="text-xs w-full  pl-14 sm:text-xl rounded-full placeholder-gray-600 decoration-black p-2 mx-6"
+            type="text" id="fname" placeholder="Type your Part# *">
+          <input class=" 	 text-white bg-customred	rounded-full	p-1 m-1 w-1/5 text-base md:text-xl font-oswaldSemiBold"
+            type="submit" value="Search">
+        </form>
+      </div>
+    </div>
+
+
+
+    <div class="w-full max-w-6xl m-auto mt-16 bg-white">
+      <div class=" text-center mb-7 ">
+        <strong class=" md:text-4xl	 text-black bg-white bold text-2xl ">- SHOP FEATURED PRODUCTS -</strong>
+      </div>
+      <div class=" mb-16">
+        <p class=" text-center text-xl text-black bold sm:text-base">These are examples of the type of parts we have
+          available</p>
+      </div>
+      <div>
+        <div class="flex md:justify-between  flex-wrap justify-start ">
+          <div class=" md:p-0 p-4 w-[9.7rem] md:w-[13rem] ">
+            <div class="">
+              <div class="">
+                <img class=" h-32" src="https://yourspareparts.com/media/wysiwyg/hydrolic.webp" width="204"
+                  loading="lazy" alt="">
+              </div>
+              <div class="h-32 border-gray-300 border-solid border rounded-b-lg">
+                <div class="m-4">
+                  <h1 class=" text-xl h-11 bold ">Hydraulics</h1>
+                </div>
+                <div class="m-4">
+                  <a href="#gosearch"> <button
+                      class=" text-gray-400 hover:text-white  rounded-full	 w-full h-7 p-0 text-base bg-stone-200 hover:bg-customred  ">Shop
+                      Now</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class=" md:p-0 p-4 w-[9.7rem] md:w-[13rem] ">            <div class="">
+              <div class="">
+                <img class=" h-32" src="https://yourspareparts.com/media/wysiwyg/motor-wheel.webp" width="204"
+                  loading="lazy" alt="">
+              </div>
+              <div class="h-32 border-gray-300 border-solid border rounded-b-lg">
+                <div class="m-4">
+                  <h1 class=" text-xl h-11 bold">Pneumatical</h1>
+                </div>
+                <div class="m-4">
+                  <a href="#gosearch"><button
+                      class=" text-gray-400 hover:text-white  rounded-full	 w-full h-7 p-0 text-base bg-stone-200 hover:bg-customred  ">Shop
+                      Now</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class=" md:p-0 p-4 w-[9.7rem] md:w-[13rem] ">            <div class="">
+              <div class="">
+                <img class=" h-32" src="https://yourspareparts.com/media/wysiwyg/motor.webp" width="204" loading="lazy"
+                  alt="">
+              </div>
+              <div class="h-32 border-gray-300 border-solid border rounded-b-lg">
+                <div class="m-4">
+                  <h1 class=" text-xl h-11 bold">Electrical Parts</h1>
+                </div>
+                <div class="m-4">
+                  <a href="#gosearch"> <button
+                      class=" text-gray-400 hover:text-white  rounded-full	 w-full h-7 p-0 text-base bg-stone-200 hover:bg-customred  ">Shop
+                      Now</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class=" md:p-0 p-4 w-[9.7rem] md:w-[13rem] ">            <div class="">
+              <div class="">
+                <img class=" h-32" src="https://yourspareparts.com/media/wysiwyg/rim.webp" width="204" loading="lazy"
+                  alt="">
+              </div>
+              <div class="h-32 border-gray-300 border-solid border rounded-b-lg">
+                <div class="m-4">
+                  <h1 class=" text-xl h-11 bold">Brackets</h1>
+                </div>
+                <div class="m-4">
+                  <a href="#gosearch"> <button
+                      class=" text-gray-400 hover:text-white  rounded-full	 w-full h-7 p-0 text-base bg-stone-200 hover:bg-customred  ">Shop
+                      Now</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class=" md:p-0 p-4 w-[9.7rem] md:w-[13rem] ">            <div class="">
+              <div class="">
+                <img class=" h-32" src="https://yourspareparts.com/media/wysiwyg/gear.webp" width="204" loading="lazy"
+                  alt="">
+              </div>
+              <div class="h-32 border-gray-300 border-solid border rounded-b-lg">
+                <div class="m-4">
+                  <h1 class=" text-xl h-11 bold">Transmissions</h1>
+                </div>
+                <div class="m-4">
+                  <a href="#gosearch"> <button
+                      class=" text-gray-400 hover:text-white  rounded-full	 w-full h-7 p-0 text-base bg-stone-200 hover:bg-customred  ">Shop
+                      Now</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="w-full max-w-6xl m-auto mt-24">
+      <div class=" text-center mb-7 ">
+        <strong class="text-2xl md:text-4xl	 text-black bold ">- SHOP FEATURED PRODUCTS -</strong>
+      </div>
+      <div class=" mb-16">
+        <p class="text-base text-center md:text-xl text-black bold">These are examples of the type of parts we have
+          available</p>
+      </div>
+
+    </div>
+
+
+
+
+
+    <div class=" w-full max-w-6xl  my-0 mx-auto">
+      <!-- Slider main container -->
+      <div class="swiper2 mt-16 overflow-hidden md:p-0 p-3">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper  font-oswaldBold">
+          <!-- Slides -->
+          <div class="swiper-slide ">
+            <div class="bg-cover	text-white bold p-16 md:text-6xl text-5xl	 "
+              style="   background-image:url(https://yourspareparts.com/static/version1666266156/frontend/Spare/Parts/en_IE/images/newoffering/black-bulldozer.webp); height: 600px ;">
+              <p class="p-2 md:text-5xl text-3xl ">COMPACT</p>
+              <p class="p-2 md:text-5xl text-3xl ">SWEEPER</p>
+              <p class="p-2 md:text-5xl text-3xl ">PARTS</p>
+              <a href="#gosearch"><button
+                  class="relative right-6 md:right-4 text-black bg-white mt-24 rounded-full font-oswaldSemiBold text-base h-16 w-56">SHOP
+                  NOW</button></a>
+            </div>
+          </div>
+
+          <div class="swiper-slide ">
+            <div class="bg-cover	text-white bold p-16 md:text-6xl text-5xl"
+              style=" background-image:url(https://yourspareparts.com/static/version1666266156/frontend/Spare/Parts/en_IE/images/newoffering/white-bulldozer.webp); height: 600px ;">
+              <p class="p-2 md:text-5xl text-3xl ">REFUSE</p>
+              <p class="p-2 md:text-5xl text-3xl ">COLLECTOR</p>
+              <p class="p-2 md:text-5xl text-3xl ">PARTS</p>
+              <a href="#gosearch"><button
+                  class="relative right-6 md:right-4 text-black bg-white mt-24 rounded-full font-oswaldSemiBold text-base h-16 w-56">SHOP
+                  NOW</button></a>
+            </div>
+          </div>
+          <div class="swiper-slide ">
+            <div class="bg-cover	text-white bold p-16  md:text-6xl text-5xl"
+              style=" background-image:url(https://yourspareparts.com/static/version1666266156/frontend/Spare/Parts/en_IE/images/newoffering/yellow-bulldozer.webp); height: 600px ;">
+              <p class="p-2 md:text-5xl text-3xl ">TRUCK-MOUNTED SWEEPER</p>
+              <p class="p-2 md:text-5xl text-3xl ">PARTS</p>
+              <a href="#gosearch"><button
+                  class="relative right-6 md:right-4 text-black bg-white mt-24 rounded-full font-oswaldSemiBold text-base h-16 w-56">SHOP
+                  NOW</button></a>
+            </div>
+          </div>
+          <div class="swiper-slide ">
+            <div class="bg-cover	text-white bold p-16 md:text-6xl text-5xl"
+              style=" background-image:url(https://yourspareparts.com/static/version1666266156/frontend/Spare/Parts/en_IE/images/newoffering/red-bulldozer.webp); height: 600px ;">
+              <p class="p-2 md:text-5xl text-3xl ">WINTER</p>
+              <p class="p-2 md:text-5xl text-3xl ">MAINTENANCE</p>
+              <p class="p-2 md:text-5xl text-3xl ">PARTS</p>
+              <a href="#gosearch"><button
+                  class="relative right-6 md:right-4 text-black bg-white mt-24 rounded-full font-oswaldSemiBold text-base h-16 w-56">SHOP
+                  NOW</button></a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="bg-[url('../public/images/testimonialsbackground.webp')]  bg-cover bg-center mt-32 pt-24 pb-16">
+
+      <p class="text-center text-2xl text-white font-oswaldlight">Client Feedback</p>
+      <p class="font-oswaldSemiBold text-center text-4xl md:text-6xl text-white">- Our Testimonials -</p>
+      <!-- Slider main container -->
+      <div class="swiper3 mt-16 max-w-6xl mx-auto w-full overflow-hidden p-3">
+
+
+
+
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper  font-oswaldBold">
+          <!-- Slides -->
+          <div class="swiper-slide ">
+
+            <div class=" p-8 bg-white " style="height: 500px; min-height:422px;">
+              <div class="relative ">
+                <div class="absolute  h-20 bg-no-repeat w-20 top-0 right-0 bg-[url('../public/images/quote.png')]">
+                  &nbsp;
+                </div>
+                <div class="pt-14">
+                  <div class="flex">
+                    <div class="h-full "><img class="rounded-full"
+                        src="https://yourspareparts.com/media/wysiwyg/g7a5lI.webp" width="92" height="92" loading="lazy"
+                        alt=""></div>
+                    <div class="flex ml-2 flex-col justify-center">
+                      <div class="font-oswaldSemiBold text-2xl ">Wout R.</div>
+                      <div class="font-oswaldRegular text-lg text-gray-500">Wout</div>
+                    </div>
+                  </div>
+                  <div class="font-oswaldRegular pr-7 mt-8 text-lg text-black">
+                    <p>VRC Consulting</p>
+                    <p>“The purchase convenience and reliable shipping is what made us decide to use YourSpareParts as
+                      our
+                      one-stop shop for spare parts.”</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide ">
+            <div class=" p-8 bg-white " style="height: 500px; min-height:422px;">
+              <div class="relative ">
+                <div class="absolute h-20 bg-no-repeat w-20 top-0 right-0 bg-[url('../public/images/quote.png')]">&nbsp;
+                </div>
+                <div class="pt-14">
+                  <div class="flex">
+                    <div class="h-full "><img class="rounded-full" src="https://yourspareparts.com/media/wysiwyg/b.webp"
+                        width="92" height="92" loading="lazy" alt=""></div>
+                    <div class="flex ml-2 flex-col justify-center">
+                      <div class="font-oswaldSemiBold text-2xl ">Susan O.</div>
+                      <div class="font-oswaldRegular text-lg text-gray-500">Susan</div>
+                    </div>
+                  </div>
+                  <div class="font-oswaldRegular pr-7 mt-8 text-lg text-black">
+                    <p>City of Antwerp</p>
+                    <p>“This is the first time, as a professional purchaser, to find parts for our diverse fleet on one
+                      platform”.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide ">
+            <div class=" p-8 bg-white " style="height: 500px; min-height:422px;">
+              <div class="relative ">
+                <div class=" absolute h-20 bg-no-repeat w-20 top-0 right-0 bg-[url('../public/images/quote.png')]">
+                  &nbsp;
+                </div>
+                <div class="pt-14">
+                  <div class="flex">
+                    <div class="h-full"><img class=" rounded-full"
+                        src="https://yourspareparts.com/media/wysiwyg/Ben2.webp" width="92" height="92" loading="lazy"
+                        alt=""></div>
+                    <div class="flex ml-2 flex-col justify-center">
+                      <div class="font-oswaldSemiBold text-2xl ">Ben V.</div>
+                      <div class="font-oswaldRegular text-lg text-gray-500">Ben</div>
+                    </div>
+                  </div>
+                  <div class="font-oswaldRegular pr-7 mt-8 text-lg text-black">
+                    <p>International Business Development</p>
+                    <p>“Finally there is a platform to make our lives easier and find spare parts at competitive prices.
+                      The team at YourSpareParts is from our industry and understand what we need”.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="swiper-pagination relative top-3  mt-10 pb-24 block md:hidden " ></div>
+
+      </div>
+    </div>
+
+
+
+    <div class="mt-24 w-full max-w-6xl mx-auto">
+      <div class="mb-7">
+        <p class=" font-oswaldBold text-center text-4xl text-black">- PARTNERS -</p>
+      </div>
+      <div class="flex flex-row justify-center ">
+
+
+        <div class="">
+          <div class="py-16 px-5"><img
+              src="https://yourspareparts.com/media/wysiwyg/DeliveredBy_DHL_webshop_logo_with_addition_1.webp"
+              width="151" height="50" loading="lazy" alt="">
+          </div>
+        </div>
+        <div class="">
+          <div class="py-16 px-5"><img src="https://yourspareparts.com/media/wysiwyg/Magento_2_151x197px_1_.png"
+              width="151" height="116" loading="lazy" alt="">
+          </div>
+        </div>
+        <div class="">
+          <div class="py-16 px-5"><img src="https://yourspareparts.com/media/wysiwyg/Stripe_Logo_151_197.svg_.png"
+              width="151" height="116" loading="lazy" alt=""></div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+
+
+    <div class="bg-customgrey py-8 overflow-hidden ">
+      <div class="w-full max-w-6xl mx-auto flex flex-row justify-between flex-wrap p-2 ">
+        <div class="md:p-0 p-4">
+          <div class="flex flex-row w-max">
+            <div><img src="https://yourspareparts.com/media/wysiwyg/Delivery.webp" width="80" height="80" loading="lazy"
+                alt=""></div>
+            <div class="flex flex-col justify-center ml-2">
+              <div class="font-oswaldBold text-base text-black">RELIABLE SHIPPING</div>
+              <div class="font-oswaldRegular text-base text-customgreytext mt-2">International</div>
+            </div>
+          </div>
+        </div>
+        <div class=" p-4 md:p-0 sm:pr-14">
+          <div class="flex flex-row w-max">
+            <div><img src="https://yourspareparts.com/media/wysiwyg/Money.webp" width="80" height="80" loading="lazy"
+                alt=""></div>
+            <div class="flex flex-col justify-center ml-2">
+              <div class="font-oswaldBold text-base text-black">VETTED VENDORS</div>
+              <div class="font-oswaldRegular text-base text-customgreytext mt-2 ">Screened and checked vendors</div>
+            </div>
+          </div>
+        </div>
+        <div class="md:p-0 p-4">
+          <div class="flex flex-row w-max">
+            <div><img src="https://yourspareparts.com/media/wysiwyg/SafeShopping.webp" width="80" height="80"
+                loading="lazy" alt=""></div>
+            <div class="flex flex-col justify-center ml-2">
+              <div class="font-oswaldBold text-base text-black">SAFE SHOPPING</div>
+              <div class="font-oswaldRegular text-base text-customgreytext mt-2">Various payment options</div>
+            </div>
+          </div>
+        </div>
+        <div class="md:p-0 p-4">
+          <div class="flex flex-row w-max">
+            <div><img src="https://yourspareparts.com/media/wysiwyg/CustomerSupport.webp" width="80" height="80"
+                loading="lazy" alt=""></div>
+            <div class="flex flex-col justify-center ml-2">
+              <div class="font-oswaldBold text-base text-black">ONLINE SUPPORT</div>
+              <div class="font-oswaldRegular text-base text-customgreytext mt-2">Use our Chat function (bottom right)
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="bg-customgreybg ">
+
+      <div class="w-full max-w-6xl bg-customgreybg mx-auto ">
+        <div class="pt-24 mb-12 flex flex-wrap justify-between px-5 ">
+          <div class="overflow-hidden">
+            <ul>
+              <li class=" font-oswaldBold text-2xl mb-4 mt-1 text-white">* OEM Part Number</li>
+              <li class=" overflow-hidden md:w-80 text-lg font-oswaldRegular mb-5 text-white">OEM part numbers are provided for reference
+                purposes only. All manufacturer names,
+                symbols, and descriptions used in our images and texts are used solely for identification purposes. It
+                is
+                neither inferred nor implied that any item sold by YourSpareParts.com is a product authorised by or in
+                any
+                way connected with any manufacturers displayed on this page.
+
+              </li>
+            </ul>
+          </div>
+          <div class="">
+            <div class="text-xl font-oswaldBold mb-7 text-white">MY ACCOUNT</div>
+            <ul class="">
+              <li class="mb-6"><a class="text-white text-base " href="https://yourspareparts.com/customer/account/">My
+                  Account</a></li>
+              <li class="mb-6"><a class="text-white text-base"
+                  href="https://yourspareparts.com/sales/order/history/">Order History</a></li>
+              <li class="mb-6"><a class="text-white text-base" href="https://yourspareparts.com/wishlist/">Wish List</a>
+              </li>
+              <li class="mb-6"><a class="text-white text-base"
+                  href="https://yourspareparts.com/newsletter/manage/">Newsletter</a></li>
+            </ul>
+          </div>
+          <div class="">
+            <div class="text-xl font-oswaldBold mb-7 text-white">CUSTOMER SERVICE</div>
+            <ul class="">
+              <!--<li><a href="/sitemap.xml">Sitemap</a></li>-->
+              <li class="mb-6"><a class="text-white text-base " href="https://yourspareparts.com/contact/">Contact
+                  Us</a></li>
+              <li class="mb-6"><a class="text-white text-base " href="https://yourspareparts.com/return-policy/">Return
+                  Policy</a></li>
+              <li class="mb-6"><a class="text-white text-base "
+                  href="https://yourspareparts.com/vendor-contact/">Vendors</a></li>
+              <li class="mb-6"><a class="text-white text-base "
+                  href="https://yourspareparts.com/terms-and-conditions/">Terms &amp; Conditions</a></li>
+              <li class="mb-6"><a class="text-white text-base " href="https://yourspareparts.com/faq/">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="">
+            <div class="text-xl font-oswaldBold mb-7 text-white">COMPANY</div>
+            <ul class="">
+              <li class="mb-6"><a class="  text-white text-base " href="https://yourspareparts.com/about-us/">About
+                  Us</a></li>
+              <li class="mb-6"><a class="text-white text-base " href="https://yourspareparts.com/legal-notice/">Legal
+                  notice</a></li><a href="https://yourspareparts.com/legal-notice/">
+              </a>
+              <li class="mb-6"><a class="text-white text-base " href="https://yourspareparts.com/legal-notice/"></a><a
+                  class="text-white" href="https://yourspareparts.com/privacy-policy-cookie-restriction-mode/">Privacy
+                  Policy</a></li>
+              <li class="mb-6"><a class="text-white text-base " href="https://yourspareparts.com/imprint/">Provider
+                  Information/Impressum</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class=" p-2 md:p-0  h-ful md:h-32 text-black rounded-lg flex w-full flex-col md:flex-row">
+          <div
+            class="flex justify-between w-12/12   md:w-1/3 bg-customgreybgtwo float-left rounded-t-xl  md:rounded-l-xl py-11 px-20	">
+            <div><img src="https://yourspareparts.com/media/wysiwyg/facebook.png" width="44" height="44" loading="lazy"
+                alt=""></div>
+            <div><img src="https://yourspareparts.com/media/wysiwyg/linkedin_1.png" width="44" height="44"
+                loading="lazy" alt=""></div>
+            <div><img src="https://yourspareparts.com/media/wysiwyg/instagram.png" width="44" height="44" loading="lazy"
+                alt=""></div>
+          </div>
+          <div class="h-full md:w-4/6 w-full py-9 pr-0 md:pr-5 flex bg-black flex-col md:flex-row "><span
+              class="md:relative top-4 text-xl font-oswaldBold ml-5 text-white  md:w-1/2">
+              SIGN UP FOR NEWSLETTER:</span>
+            <div class=" text-base w-full xs:	 bottom-1  h-14 p-2 md:p-0">
+              <form action=""
+                class="w-full md:w-11/12 border border-solid	rounded-xl border-slate-400 	bg-white flex justify-between h-14">
+
+                <input
+                  class=" w-5/12  pl-14 font-oswaldRegular text-base 	rounded-2xl placeholder-gray-600 decoration-black p-2 mx-6 "
+                  type="text" id="fname" placeholder="Your Email Address">
+                <input style="bottom: 1px; left:1px;"
+                  class="  w-1/3 rounded-r-md  relative  text-xl 	 text-white bg-customred		p-2 h-14 " type="submit"
+                  value="Subscribe">
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-between mt-12 pb-24 flex-col md:flex-row">
+          <div class="">
+            <p class="text-white text-lg px-5 pb-4 "><span class="text-customred ">YourSpareParts.com </span>
+              2022 Copyright . All rights reserved.
+            </p>
+          </div>
+          <div class="flex">
+            <div class=" ml-7"><img src="https://yourspareparts.com/media/wysiwyg/Visa.webp" width="70" height="48"
+                loading="lazy" alt="">
+            </div>
+            <div class=" ml-7"><img src="https://yourspareparts.com/media/wysiwyg/master.webp" width="70" height="48"
+                loading="lazy" alt=""></div>
+            <div class=" ml-7"><img src="https://yourspareparts.com/media/wysiwyg/discover.webp" width="70" height="48"
+                loading="lazy" alt=""></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+<link href="https://unpkg.com/swiper/css/swiper.min.css" rel="stylesheet"/>
+    <script>
+      const swiper = new Swiper('.swiper', {
+        // Optional parameters
+
+        speed: 400,
+        autoplay: {
+          delay: 2000,
+        },
+        loop: true,
+
+
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+
+        // And if we need scrollbar
+        scrollbar: {
+          el: '.swiper-scrollbar',
+        },
+      });
+
+    </script>
+    <script>
+      const swiper2 = new Swiper('.swiper2', {
+
+        // Optional parameters
+        speed: 400,
+        autoplay: {
+          delay: 3000,
+        },
+        loop: true,
+
+
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        slidesPerView: 2,
+        spaceBetween: 30,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+
+        // And if we need scrollbar
+        scrollbar: {
+          el: '.swiper-scrollbar',
+        },
+
+        breakpoints: {
+          // when window width is >= 767px
+          636: {
+            slidesPerView: 2
+          },
+          320: {
+            slidesPerView: 1,
+
+          }
+        }
+      });
+
+    </script>
+    <script>
+      const swiper3 = new Swiper('.swiper3', {
+
+        // Optional parameters
+        speed: 400,
+       
+        loop: true,
+
+
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
+
+        // Navigation arrows
+        slidesPerView: 3,
+        spaceBetween: 30,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+
+        // And if we need scrollbar
+        scrollbar: {
+          el: '.swiper-scrollbar',
+        },
+        breakpoints: {
+          // when window width is >= 767px
+          767: {
+            slidesPerView: 3,
+           
+          },
+          450: {
+            slidesPerView: 2,
+
+          },
+          315: {
+            slidesPerView: 1,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            }
+            
+
+          }
+        }
+      });
+
+    </script>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+    </script>
+
+</body>
+
+</html>
+<style>
+ 
+  
+  .swiper-pagination{
+ 
+    position: relative;
+  }
+  .swiper-pagination-bullet{
+    width: 10px;
+    height: 10px;
+    margin: 5px 7px;
+    background: #D6D6D6;
+    border-radius: 30px;
+
+  }
+  span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: white;
+}
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+  }
+</style>

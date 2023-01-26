@@ -1,0 +1,83 @@
+body{
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    margin: 0px;
+ }
+ul.menu{
+    /*
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(124, 195, 236);
+    */
+    padding-left: 0px;
+    list-style-type: none;
+    display: flex;
+    background-color: rgb(124, 195, 236);
+    margin: 0px;
+    flex-wrap: wrap;
+}
+ul#Menu li {
+    width: 110px;
+    text-align: center;
+    align-self: center;
+    height: 38px;
+    line-height: 38px;
+}
+ul#Menu li.active {
+    background-color: #000;
+    color: #fff;}
+
+.menu a.active{
+    background-color: rgb(0, 0, 10);
+    color: white;
+}
+.menu a:hover{
+    background-color: burlywood;
+    color: black;
+    
+}
+.menu .icon{
+    display: none;
+}
+
+@media screen and (max-width:556px) {
+    .menu{
+        flex-direction: column;
+    }
+    .menu a {display: none;}
+    
+   ul#Menu li{
+       width:auto;
+       align-self: auto;
+       height: auto;
+   }
+
+}
+@media screen and (max-width:556px) {
+  
+.menu.responsive a {
+  float: none;
+  display: block;
+  text-align: left;
+}
+}
+
+@media screen and (max-width:556px){
+.menu .icon{
+    display:block;
+}
+.displayicon{
+    display: block;
+}
+
+}
+@media screen and (max-width:1250px){
+    .displayicon{
+        display: none;
+    }
+    }
+    @media screen and (max-width:556px){
+        .displayicon{
+            display: block;
+        }
+        }

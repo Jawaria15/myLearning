@@ -1,0 +1,369 @@
+{{template config_path="design/email/header_template"}}
+ <center class="wrapper">
+        <table class="main" width="100%">
+       <tr class="logo">
+                <td>
+                                            <a href="#"><img
+  
+     src="{{view url='images/logo.jpg'}}"
+     alt="logo"
+ />
+</a>
+
+
+                </td>
+            </tr>
+
+        <tr  class="email-intro banner" >
+        <td style="padding:15px 0 50px;">
+            <table width="100%">
+                <tr>
+                    <td style="text-align: center;padding: 15px;">
+                        <h1 class="heading">We've Got Your Order</h1>
+                        <p class="subheading">Thank you<span class="uname"> {{trans "%customer_name," customer_name=$order_data.customer_name}}</span></p>
+                              <p class="subheading">
+                        {{trans "Thank you for your order from %store_name." store_name=$store.frontend_name}}
+                        {{trans "Once your package ships we will send you a tracking number."}}
+                        {{trans 'You can check the status of your order by <a style="color:white;" class="olink"  href="%account_url"><span style="color:#fff;">logging into your account</span></a>.' account_url=$this.getUrl($store,'customer/account/',[_nosid:1]) |raw}}
+                    </p>
+                    <p class="subheading">
+                        {{trans 'If you have questions about your order, you can email us at <a class="elink" href="mailto:%store_email">%store_email</a>' store_email=$store_email |raw}}{{depend store_phone}} {{trans 'or call us at <a href="tel:%store_phone">%store_phone</a>' store_phone=$store_phone |raw}}{{/depend}}.
+                        {{depend store_hours}}
+                            {{trans 'Our hours are <span class="no-link">%store_hours</span>.' store_hours=$store_hours |raw}}
+                        {{/depend}}
+                    </p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+     <tr  class="email-summary">
+        <td style="padding:15px 0 50px;">
+            <table width="100%">
+                <tr>
+                    <td style="text-align: center;padding: 15px;">
+                        <h1 class="orderno">{{trans 'Your Order <span class="no-link">#%increment_id</span>' increment_id=$order.increment_id |raw}}</h1>
+                        <p class="uname">{{trans 'Placed on <span class="no-link">%created_at</span>' created_at=$created_at_formatted |raw}}</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="email-information">
+        <td>
+            {{depend order_data.email_customer_note}}
+            <table class="message-info">
+                <tr>
+                    <td>
+                        {{var order_data.email_customer_note|escape|nl2br}}
+                    </td>
+                </tr>
+            </table>
+            {{/depend}}
+            <table class="order-details">
+               
+<tr class="infotab">
+    <td >
+        <table width="100%">
+            <tr>
+                <td class="two-columns ">
+                    <table class="column">
+                        <tr>
+                            <td class="padding address-details">
+                                <table class="content">
+                                    <tr>
+                                        <td>
+                                            <h3 class="uname">{{trans "Billing Info"}}</h3>
+                                            <p class="subheadings-info">{{var formattedBillingAddress|raw}}</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    {{depend order_data.is_not_virtual}}
+                    <table class="column">
+                        <tr>
+                            <td class="padding address-details">
+                                <table class="content">
+                                    <tr>
+                                        <td>
+                                            <h3 class="uname">{{trans "Shipping Info"}}</h3>
+                                            <p class="subheadings-info">{{var formattedShippingAddress|raw}}</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    {{/depend}}
+                </td>
+            </tr> 
+
+        </table>
+
+    </td>
+</tr>
+
+<tr class="infotab">
+    <td >
+        <table width="100%">
+            <tr>
+                <td class="two-columns last">
+                    <table class="column">
+                        <tr>
+                            <td class="padding ">
+                                <table class="content">
+                                    <tr>
+                                        <td class="method-info"> 
+                                            <h3 class="uname">{{trans "Payment Method"}}</h3>
+                                          <p class="subheadings-info">  {{var payment_html|raw}}</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    {{depend order_data.is_not_virtual}}
+                    <table class="column">
+                        <tr>
+                            <td class="padding ">
+                                <table class="content">
+                                    <tr>
+                                        <td class="method-info">
+                                            <h3 class="uname">{{trans "Shipping Method"}}</h3>
+                                            <p class="subheadings-info">{{var order.shipping_description}}</p>
+                                            {{if shipping_msg}}
+                                            <p class="subheadings-info">{{var shipping_msg}}</p>
+                                            {{/if}}
+                                          </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    {{/depend}}
+                </td>
+            </tr> 
+
+        </table>
+
+    </td>
+</tr>
+            </table>
+            {{layout handle="sales_email_order_items" order_id=$order_id area="frontend"}}
+        </td>
+    </tr>
+   <tr>
+                <td height=8 style="background-color:white ;">
+                </td>
+            </tr>
+<tr class="newsletter">
+    <td style="padding:15px 0 50px;">
+        <table width="100%">
+            <tr>
+                <td style="text-align: center;padding: 15px;">
+                    <p class="newsletterheading">
+                    Newsletter
+                    </p>
+                <p class="newslettersubheading">
+                  Be the first to know about the latest Details ,style update and more.
+                </p>
+                <a style="color: black;" href="" class="button-light"><span style="color:black">Subscribe Now</span></a>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+  <tr>
+                <td height=8 style="background-color:white ;">
+                </td>
+  </tr>
+
+  <tr class="icons">
+                                        <td style="padding: 10px 72px;">
+                                            <a href="#"><img  src="{{view url='images/black-facebook.png'}}" width="30"  alt="f"></a>
+                                            <a href="#"><img src="{{view url='images/black-twitter.png'}}"width="30"  alt="t"></a>
+                                            <a href="#"><img src="{{view url='images/black-youtube.png'}}" width="30"  alt="y"></a>
+                                            <a href="#"><img src="{{view url='images/black-linkedin.png'}}" width="30"  alt="l"></a>
+                                            <a href="#"><img src="{{view url='images/black-instagram.png'}}" width="30"  alt="i"></a>
+
+                                        </td>
+                                    </tr>
+
+<tr class="opinion">
+    <td style="padding:15px 0 50px;">
+        <table width="100%">
+            <tr>
+                <td style="text-align: center;padding: 15px;">
+                   
+                                            <p class="opinionsubheading">
+                                                Your opinion matter to us. Could you please take a minute and leave a review for your lattest purchase.
+                                            </p>
+                                            <a href="#"><img  src="{{view url='images/black-facebook.png'}}" width="30"  alt="f"></a>
+                                            <a href="#"><img src="{{view url='images/black-twitter.png'}}"width="30"  alt="t"></a>
+                                            <a href="#"><img src="{{view url='images/black-youtube.png'}}" width="30"  alt="y"></a>
+                                            <a href="#"><img src="{{view url='images/black-linkedin.png'}}" width="30"  alt="l"></a>
+                                            <a href="#"><img src="{{view url='images/black-instagram.png'}}" width="30"  alt="i"></a>
+                             </td>  
+               
+            </tr>
+ <tr>
+                <td height=8 style="background-color:white ;">
+                </td>
+  </tr>
+<tr class="opinionbutton">
+<td>            
+                                  
+                                            <a  style="color: white;" href="" class="button-dark"><span style="color:white">Leave a review</span></a>
+                                
+              </td>  
+               
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr class="bottomcell">
+    <td style="padding:15px 0 50px;">
+        <table width="100%">
+            <tr>
+                <td style="text-align: center;padding: 15px;">
+                   
+                <p class="bottomcelldesc">
+Thankyou so much for your order  We are a small family run learn really want to impress you. We are sure you will enjoy our service  and will return shortly.We look forward to it.
+
+</p>
+                <a href="" class="button-light"> <span style="color:black">Contant us<span></a>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</center>
+{{template config_path="design/email/footer_template"}}
+
+
+
+
+<style>
+    .subheadings-info{
+text-align:left} 
+.wrapper{
+            width: 100%;
+            table-layout: fixed;
+            background-color: #cccccc;
+
+        }
+  .main{
+            background-color: #ffffff;
+            margin:0 auto;
+            width: 100%;
+            max-width: 600px;
+            border-spacing: 0;
+            font-family: sans-serif;
+            color: #171a1b;
+
+        }
+.logo{
+  text-align: center;
+}
+
+.heading{
+color:white;
+    text-align:center;
+      font-weight: bold !important;
+}
+.orderno{
+border-bottom: unset !important;
+      font-weight: bold !important;
+
+}
+.infotab{
+border-bottom: 1px solid black;
+}
+.newsletterheading{
+    font-size: 20px;
+     font-weight: bold;
+     color: white;
+}
+.newslettersubheading{
+    line-height: 23px;
+    font-size: 15px;
+    padding:5px 0px 15px;
+    color: white;
+
+
+}
+.newsletter{
+    background-color:grey;
+}
+.icons{
+text-align:center;
+border-bottom: 1px solid black;
+border-top: 1px solid black;
+
+}
+ .button-dark{
+            color: white !important;
+            background-color: #171a1b;
+            text-decoration: none;
+            padding:12px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+
+        }
+ .button-light{
+            color: black !important;
+            background-color: white;
+            text-decoration: none;
+            padding:12px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+           text-align:center;
+        }
+.opinionbutton{
+text-align: center;
+
+}
+.bottomcell{
+background-color: black;
+    color: white;
+}
+p.bottomcelldesc {
+margin-bottom:38px !important;
+    color: white;
+}
+.two-columns .column {
+    width: 100%;
+    max-width: 291px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+.email-intro.banner {
+    background-image: url({{view url='images/banner1.jpeg'}});
+}
+.subheading{
+color:white;
+}
+.uname{
+    font-weight: bold !important;
+}
+.elink{
+font-weight:bold;
+color:white !important;
+}
+.olink{
+font-weight:bold;
+color:white !important;
+}
+
+</style>

@@ -1,0 +1,47 @@
+.checkout-index-index .amcard-field-block .amgcard-datalist-container + .amcard-button:hover {
+    background-color: #9bd7d3;
+    color: #fff;
+}
+.checkout-index-index .amcard-field-block .amgcard-datalist-container + .amcard-button {
+    background-color: transparent;
+    border: 2px solid #9bd7d3;
+    width: 80px;
+    margin: 0;
+    padding: 0 10px;
+    color: #333;
+    line-height: 36px;
+}
+.checkout-index-index .amgcard-datalist-container .amcard-field.-datalist {
+    height: 40px;
+}
+.checkout-index-index .amcard-title1 {
+    color: #222;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 15px;
+}
+.checkout-index-index .amcard-field-container .amcard-check {
+   
+    font: 800 14px/18px 'Muli',sans-serif;
+    letter-spacing: 0;
+    text-transform: none;
+    height: 40px;
+    padding: 0 10px;
+    vertical-align: middle;
+    text-align: center;
+    transition: all .3s;
+    border: 2px solid #9bd7d3;
+    background: #fff;
+    color: #222;
+    box-shadow: none;
+    text-decoration: none;
+}
+.checkout-index-index .amcard-field-container .amcard-check:hover {
+    height: 40px;
+    border: 2px solid #9bd7d3;
+    background: #9bd7d3;
+    color: #fff;
+  
+    box-shadow: none;
+    text-decoration: none;
+}

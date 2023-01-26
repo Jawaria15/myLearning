@@ -1,0 +1,81 @@
+section.news-letter {
+    background-image: url("https://cyclewalay.com/pub/static/version1649307778/frontend/Esparks/esparktheme/en_US/images/img8.png");
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.newshead p{
+    color: #fff;
+    font-size: 19px;}
+
+.news-letter h1.stay {
+    color: #fff;
+    font-family: "LemonMilk";
+    font-size: 35px;
+    margin: 7px 0px;
+}
+.news-letter h1.connected{
+    color: #FE9B30;
+    font-size: 35px;
+    font-family: "LemonMilk";
+    margin: 7px 0px;
+}
+.news-letter .row.news-pad {
+    padding: 110px 0px 70px;
+}
+.block.newsletter {
+    max-width: unset !important;
+    width: unset !important;
+}
+
+.news-letter .block.newsletter .form.subscribe {
+    padding: 85px 25px 85px 20px;
+    display: table;
+    width: 100%;
+
+}
+
+
+.block.newsletter .field .control {
+    display: inline-block;
+    text-decoration: none; 
+    display: block;
+}
+.news-letter input {
+    background: transparent !important;
+    border: unset !important;
+    text-align: center;
+    max-width: 920px !important;
+    width: 100%;
+    border-bottom: 1px solid #c8c8c8 !important;
+    padding: 0px;
+    margin: 0px;
+    color: #fff;
+}
+.block.newsletter .actions {
+    display: table-cell;
+    vertical-align: top;
+    width: 1%;
+}
+
+
+.block.newsletter .action.subscribe {
+    margin: -10px 0px 0px 15px;
+}
+.news-letter .action.primary {
+    background: #FE9B30 !important;
+    border: 1px solid #FE9B30 !important;
+    color: #fff !important;
+    padding: 9px 32px !important;
+    height: 45px;
+}
+.news-letter .action.primary:hover {
+    background-color: #fff !important;
+    border: 1px solid #FE9B30 !important;
+    color: #FE9B30 !important;
+}
+.block.newsletter .field .control:before {
+    content: '';
+
+}
+

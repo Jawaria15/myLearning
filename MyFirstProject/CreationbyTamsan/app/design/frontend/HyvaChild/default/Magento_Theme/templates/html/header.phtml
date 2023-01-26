@@ -1,0 +1,187 @@
+<?php
+/**
+ * Hyvä Themes - https://hyva.io
+ * Copyright © Hyvä Themes 2020-present. All rights reserved.
+ * This product is licensed per Magento install
+ * See https://hyva.io/license
+ */
+
+declare(strict_types=1);
+
+use Hyva\Theme\Model\ViewModelRegistry;
+use Hyva\Theme\ViewModel\HeroiconsOutline;
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+
+/** @var Escaper $escaper */
+/** @var Template $block */
+/** @var ViewModelRegistry $viewModels */
+
+/** @var HeroiconsOutline $heroicons */
+$heroicons = $viewModels->require(HeroiconsOutline::class);
+
+/** @var Hyva\Theme\ViewModel\StoreConfig $storeConfig */
+$storeConfig = $viewModels->require(Hyva\Theme\ViewModel\StoreConfig::class);
+$showMiniCart = $storeConfig->getStoreConfig(\Magento\Checkout\Block\Cart\Sidebar::XML_PATH_CHECKOUT_SIDEBAR_DISPLAY);
+?>
+<script>
+    function initHeader () {
+        return {
+            searchOpen: false,
+            cart: {},
+            getData(data) {
+                if (data.cart) { this.cart = data.cart }
+            }
+        }
+    }
+    function initCompareHeader() {
+        return {
+            compareProducts: null,
+            itemCount: 0,
+            receiveCompareData(data) {
+                if (data['compare-products']) {
+                    this.compareProducts = data['compare-products'];
+                    this.itemCount = this.compareProducts.count;
+                }
+            }
+        }
+    }
+</script>
+<div x-data="{scrolAtTop: true}">
+                   <div class="w-full"
+                       :class="{ 'theme-bg-grey6 fixed top-0 z-20 shadow-md': !scrolAtTop }"
+                       @scroll.window="scrolAtTop = (window.pageYOffset > 10) ? false : true"
+                   >
+<div id="header"
+     class="font-serif relative z-30 w-full border-b shadow bg-container-lighter border-container-lighter"
+     x-data="initHeader()"
+     @keydown.window.escape="searchOpen = false;"
+     @private-content-loaded.window="getData(event.detail.data)"
+>
+    <div class="container flex flex-wrap items-center justify-between w-full px-6 py-3 mx-auto mt-0 lg:flex-row-reverse	">
+        <!--Logo-->
+        <?= $block->getChildHtml('logo'); ?>
+                    
+        <div class="flex lg:flex-col-reverse ">
+             <!--Main Navigation-->
+       
+         <?= $block->getChildHtml('topmenu') ?>
+
+
+<div class="flex items-center order-3 lg:border-b border-solid border-grey pb-2 justify-end">
+     <!--Search-->
+     <div class="hidden lg:block relative z-10  w-80 border-t  bg-container-lighter border-container-lighter border-none shadow-none "
+         id="search-content"
+         :class="{ 'block': searchOpen, 'block': !searchOpen }"
+         @click.away="searchOpen = false"
+         x-show="true"
+    >
+        <?= $block->getChildHtml('header-search'); ?>
+    </div>
+    <!--Compare Icon-->
+    <a id="compare-link"
+       class="hidden relative invisible  mx-1 no-underline sm:ml-3 hover:text-black"
+       :class="{ 'invisible': !(itemCount > 0) }"
+       href="<?= $escaper->escapeUrl($block->getUrl('catalog/product_compare/index')) ?>"
+       title="<?= $escaper->escapeHtml(__('Compare Products')) ?>"
+       x-data="initCompareHeader()"
+       @private-content-loaded.window="receiveCompareData($event.detail.data)"
+    >
+        <?= $heroicons->scaleHtml(
+            "w-8 h-8 md:h-6 md:w-6 hover:text-black",
+            25,
+            25
+        ) ?>
+
+        <span class="sr-only label">
+           <?= $escaper->escapeHtml(__('Compare Products')) ?>
+        </span>
+
+        <span class="absolute top-0 right-0 h-5 px-2 py-1 -mt-5 -mr-4 text-xs font-semibold
+            leading-none text-center text-white uppercase transform -translate-x-1
+            translate-y-1/2 bg-yellow-500 rounded-full"
+        >
+            <span x-text="itemCount"></span>
+            <span x-show="itemCount === 1" class="sr-only">
+                <?= $escaper->escapeHtml(__('item')) ?>
+            </span>
+            <span x-show="itemCount > 1" class="sr-only">
+                <?= $escaper->escapeHtml(__('items')) ?>
+            </span>
+        </span>
+    </a>
+
+    <!--Search Icon-->
+    <button id="menu-search-icon"
+            class="hidden  ml-1 no-underline sm:ml-3 hover:text-black"
+            @click.prevent="
+                searchOpen = !searchOpen;
+                $nextTick(() => {
+                 const searchInput = document.querySelector('#search');
+                 searchInput.focus();
+                 searchInput.select();
+             });
+            "
+    >
+        <span class="sr-only label">
+            <?= $escaper->escapeHtml(__('Search')) ?>
+        </span>
+
+        <?= $heroicons->searchHtml(
+            "w-8 h-8 md:h-6 md:w-6 hover:text-black",
+            25,
+            25
+        ) ?>
+    </button>
+
+    <!--Customer Icon & Dropdown-->
+    
+    <?= $block->getChildHtml('customer') ?>
+
+    <!--Cart Icon-->
+    <a id="menu-cart-icon"
+       <?php if ($showMiniCart): ?>@click.prevent.stop="$dispatch('toggle-cart',{});"<?php endif ?>
+       class="mr-3 relative flex justify-between w-20 ml-1 no-underline sm:ml-3 hover:text-black"
+       href="<?= $escaper->escapeUrl($block->getUrl('checkout/cart/index')) ?>"
+    >
+        <span class="sr-only label">
+            <?= $escaper->escapeHtml(__('Cart')) ?>
+        </span>
+<!-- shopping cart black -->
+<div style="    transform: rotate3d(0, 1, 0, 3.1579rad);">
+        <?= $heroicons->shoppingCartHtml(
+            "w-8 h-8 md:h-6 md:w-6 hover:text-black fill-[#00000085] stroke-[#7a7a7a]",
+            25,
+            25
+        ) ?>
+</div>
+        <span x-text="cart.summary_count"
+              class="lg:block hidden"
+             
+        ></span>
+        <p class="lg:block hidden">item(s)</p>
+    </a>
+ <div>
+    <!--phone number-->
+<a class="text-black decoration-none lg:block hidden ml-5 pl-7 text-[25px] ">
+  800-504-0583
+</a>
+ </div>
+  
+</div>
+  
+        </div>
+    
+    </div>
+   
+
+    <!--Cart Drawer-->
+    <?= $block->getChildHtml('cart-drawer'); ?>
+
+    <!--Authentication Pop-Up-->
+    <?= $block->getChildHtml('authentication-popup'); ?>
+</div>
+
+</div>
+               </div>      
+                      

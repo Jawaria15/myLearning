@@ -1,0 +1,41 @@
+<!-- ko if: isGiftCardEnable() -->
+<div class="amcard-codes-list">
+    <!-- ko foreach: getRegion('messages') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    <!--/ko-->
+
+    <!-- ko foreach: applyCodes().split(',')  -->
+    <!-- ko if: $data.length > 0 -->
+    <div>
+        <span data-bind="text: $data"></span>
+        <button class="amcard-delete" data-bind="text: $t('Remove'), attr: {title: $t('Remove')}, click: $parent.removeSelected.bind($parent, $data), 'value': $data"></button>
+    </div>
+    <!-- /ko -->
+    <!-- /ko -->
+</div>
+<div class="amcard-field-container -cart">
+    <span class="amcard-title1">Gift Card</span>
+    <div class="amcard-field-block -double -code">
+        <div class="amgcard-datalist-container" afterRender="setContainer.bind($data, $element)" data-bind="css: {'-active': isShowDatalist}">
+            <label >
+                <input class="amcard-field -datalist"
+                       type="text"
+                       data-bind="click: onDatalistClick.bind($data, $element), value: $data.cardCode, attr: {placeholder: $t('Enter Code')}"/>
+            </label>
+            <ul class="amgcard-datalist-ul">
+                <!-- ko foreach: $data.options  -->
+                <li class="amcard-datalist-li" data-bind="text: value, click: $parent.onOptionClick.bind($parent, value)"></li>
+                <!-- /ko -->
+            </ul>
+        </div>
+        <input type="button" class="amcard-button" data-bind="click: apply.bind($data), attr: {value: $t('Apply')}"/>
+    </div>
+    <button class="amcard-check" data-bind=" click: check.bind($data)">See Balance</button>
+</div>
+<!-- /ko -->
+<!-- ko if: isCart -->
+<div data-bind="scope: 'amcard-cart-render'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+<!-- /ko -->
+

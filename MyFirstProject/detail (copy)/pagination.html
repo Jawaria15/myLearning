@@ -1,0 +1,126 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="test" class="p">
+    <li style="display: none;">1</li>
+    <li style="display: none;">2</li>
+    <li style="display: none;">3</li>
+    <li style="display: none;">4</li>
+    <li style="display: none;">5</li>
+    <li style="display: none;">6</li>
+    <li style="display: none;">7</li>
+    <li style="display: none;">8</li>
+    <li style="display: none;">9</li>
+    <li style="display: none;">10</li>
+    <li style="display: none;">11</li>
+    <li style="display: none;">12</li>
+    <li style="display: none;">13</li>
+    <li style="display: none;">14</li>
+    <li style="display: none;">15</li>
+    <li style="display: none;">16</li>
+    <li style="display: none;">17</li>
+    <li style="display: none;">18</li>
+    <li style="display: none;">19</li>
+    <li style="display: none;">20</li>
+    <li style="">21</li>
+    <li style="">22</li>
+    <li style="">23</li>
+   
+
+   
+</ul>
+
+<button id="prev" type="button">prev</button>
+<button id="more" type="button" disabled="">next</button>
+
+
+<span class="pagination-info"></span>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+
+
+
+<script type="text/javascript">
+const ITEMS_PER_PAGE = 10;
+
+var pageNumber = 1;
+var totalNumberOfPages;
+var items = $("ul li");
+    var numItems = items.length-1; //total items
+    var perPage = 10; //per page
+    var startindex = 0;
+    totalPages = Math.floor(numItems / perPage);
+    currentPage = Math.ceil(startindex / perPage);
+    
+    $('.pagination-info').text("from " + (startindex + 1) + " to " + (perPage * (startindex + 1)));
+  
+
+$(document).ready(function () {
+    totalNumberOfPages = $("#test").find("li").length;
+
+    showPage(pageNumber);
+
+    $('#prev').click(function () {
+       pageNumber--;
+       showPage(pageNumber);
+       var showFrom = ((pageNumber-1)  * perPage)+1;
+        var showTo = (showFrom + perPage) ;
+  
+        $('.pagination-info').text("from " + (showFrom) + " to " + ((showTo-1)>numItems ? numItems :(showTo-1) ));
+  
+        
+    });
+
+    $('#more').click(function () {
+       pageNumber++;
+       showPage(pageNumber);
+       var showFrom = ((pageNumber-1)  * perPage)+1;
+        var showTo = (showFrom + perPage) ;
+  
+        $('.pagination-info').text("from " + (showFrom) + " to " + ((showTo-1)>numItems ? numItems :(showTo-1) ));
+  
+    });
+
+    $('#goto').click(function () {
+       pageNumber = +$("#page").val();
+
+        if (!pageNumber) {
+            pageNumber = 1;   
+        }
+
+        showPage(pageNumber);
+    });
+});
+
+function showPage(page) {
+  
+    var start = (ITEMS_PER_PAGE * page) - ITEMS_PER_PAGE;
+    var showListItems = $("#test li").splice(start, ITEMS_PER_PAGE);
+
+    if (start == 0) {
+        $("#prev").prop('disabled', true);
+    } else {
+        $("#prev").prop('disabled', false);
+    }
+
+    if (start >= totalNumberOfPages - ITEMS_PER_PAGE) {
+        $("#more").prop('disabled', true);
+    } else {
+        $("#more").prop('disabled', false);
+    }
+
+    $("#test li").hide();
+    $(showListItems).show();
+    
+}
+
+// Add your javascript here
+
+</script>
+
+
+</body></html>

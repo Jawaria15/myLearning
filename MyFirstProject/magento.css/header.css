@@ -1,0 +1,206 @@
+.header.panel > .header.links > .authorization-link:after {
+   
+    display: none !important ;
+}
+.header.panel > .header.links > .authorization-link > a:after {
+    content: "\f2c0";
+    font-family: FontAwesome;
+    font-size: 20px;
+}
+.header.panel > .header.links > .authorization-link > a {
+   
+    font-size: 0px;
+}
+.page-header .header.panel {
+  
+    display: flex ;
+}
+.page-wrapper .page-header .panel.wrapper {
+
+    background-color: white ;
+}
+.cms-home .block.block-search {
+    display: none;
+}
+.block.widget .products-grid .product-item {
+    margin-left: 0px !important;
+}
+nav.navigation {
+    background-color: black;
+    text-align: right;
+    padding: 15px 0px !important;
+    width: 100%;
+    max-width: 1490px !important;
+    font-family: 'MetropolisRegular';
+}
+
+
+.header.content .logo {
+    margin: 13.5px auto 0 !important;
+
+}
+.navigation .level0 > .level-top {
+    color: white!important;
+    text-transform:uppercase;
+}
+.top-head-extra{
+    color: #333;
+    font-family: 'MetropolisRegular';
+}
+.top-head-extra p {
+    padding: 4px 9px;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+    a {
+        color: #000 !important;
+        margin-top: 6px;
+    }
+    .minicart-wrapper .action.showcart:before {
+        color: #333333;
+        font-size: 20px !important;
+        font-family: 'FontAwesome';
+        content: '\f07a' !important;
+        margin-right: 15px;
+    }
+    .repair-button {
+        border-radius: 3px;
+        display: inline-block;
+        overflow: hidden;
+        height: 37px;
+        border: 1px solid #FE9B30;
+        line-height: 37px;
+        background-color: #FE9B30;
+        margin-left: 15px;
+    }
+    .repair-button .btn {
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+        font-size: 1.5rem;
+    padding: 1rem 3rem;
+
+    color: #fff !important;
+    text-transform: uppercase;
+    text-transform: capitalize;
+    font-family: 'MetropolisRegular';
+    }
+    .repair-button:hover {
+        background-color: #fff;
+       
+    }
+    .repair-button:hover a {
+        color: #FE9B30 !important;
+        font-weight: 300;
+    }
+    .page-header .panel.wrapper {
+        border-bottom: unset !important;
+        
+    }
+    .page-header .header.panel {
+        max-width: 1495px !important;
+        padding: 20px 0px 15px !important;
+    }
+    .header.content {
+        padding: 0px !important;
+        max-width: 1495px !important;
+        background-color: black !important;
+    }
+    .nav-sections {
+margin-bottom: 0px !important;}
+
+
+li.item.link.compare {
+    margin-bottom: 0px;
+}
+@media  screen and (max-width:576px) {
+    .page-header .header.panel {
+        flex-direction: column;
+    }
+        .header.content .logo {
+            margin-left: 56px !important;
+    margin-bottom: 15px !important;
+    margin-top: 15px !important;
+        }
+            .minicart-wrapper {
+                margin-top: 0px;
+                width: 50%;
+                text-align: right;
+                float: right;
+            }
+            .page-header .header.panel {
+                display: flex;
+                flex-direction: row-reverse;
+            }
+            .top-head-extra{
+                display: none;
+            }
+            .nav-sections-items {
+              
+                background-color: black;
+            }
+    
+}
+.nav-toggle:before {
+    color: #ffffff;
+}
+.nav-toggle{
+    top:10px;
+}
+@media screen and (max-width: 767px){
+    .nav-sections .header.links {
+       
+         border-bottom: unset;
+    }
+.section-item-title.nav-sections-item-title.active a {
+    color: #fff !important;
+}
+.nav-open .navigation a {
+    color: #fff !important;
+}
+.nav-before-open.nav-open nav.navigation {
+    text-align: unset !important;
+}
+ul.header.links li a:hover {
+    color: #FE9B30 !important;
+}
+.nav-sections .header.links a {
+    color: #ffffff !important;
+}
+.sections.nav-sections {
+    background-color: black;
+}
+}
+.page-header{
+    margin-bottom: 0px !important;
+}
+p{
+    margin: 0px;
+}
+.nav-sections-item-content {
+    background-color: black;}
+    header.page-header {
+        background-color: #000;
+    }
+    
+    .nav-toggle:hover:before {
+        color: #fff;
+    }
+    .nav-sections .header.links li > a {
+        border-top:unset;
+     
+    }
+    li.authorization-link {
+        border-top: 1px solid #d1d1d1;
+    }
+    .sticky {
+        position: fixed;
+        background-color: black;
+        z-index: 99;
+        width: 100%;
+    }
+    
+    .sticky .panel .header {
+        display: none;
+    }

@@ -1,0 +1,132 @@
+<?php
+/**
+ * Hyvä Themes - https://hyva.io
+ * Copyright © Hyvä Themes 2020-present. All rights reserved.
+ * This product is licensed per Magento install
+ * See https://hyva.io/license
+ */
+
+use Hyva\Theme\Model\ViewModelRegistry;
+use Hyva\Theme\ViewModel\HeroiconsOutline;
+use Hyva\Theme\ViewModel\ReCaptcha;
+use Magento\Framework\Escaper;
+use Magento\Newsletter\Block\Subscribe;
+
+/** @var Subscribe $block */
+/** @var Escaper $escaper */
+/** @var ViewModelRegistry $viewModels */
+/** @var ReCaptcha $recaptcha */
+/** @var HeroiconsOutline $heroicons */
+
+$heroicons = $viewModels->require(HeroiconsOutline::class);
+
+// Do not replace this with $viewModels->require(ReCaptcha::class); that might break the dependency
+// on the Magento_ReCaptchaNewsletter module
+$recaptcha = $block->getData('viewModelRecaptcha');
+?>
+<div class="pr-4 lg:w-full  flex lg:flex-row flex-col border-b border-solid border-white pb-11">
+    <form class="form subscribe lg:w-[33%] self-center	"
+          action="<?= $escaper->escapeUrl($block->getFormActionUrl()) ?>"
+          method="post"
+          x-data="initNewsletterForm()"
+          @submit.prevent="submitForm()"
+          id="newsletter-validate-detail">
+        <div class="hidden mb-3 text-sm font-medium tracking-widest text-gray-900 uppercase title-font">
+            <?= $escaper->escapeHtml(__('Newsletter')) ?>
+        </div>
+        <div class="flex flex-wrap justify-center gap-2 md:justify-start">
+            <label for="newsletter-subscribe" class="sr-only">
+                <?= $escaper->escapeHtml(__('Email Address')) ?>
+            </label>
+            <input name="email"
+                type="email"
+                required
+                id="newsletter-subscribe"
+                class="form-input inline-flex lg:w-[64%] bg-transparent border-solid shadow-none border-b  border-t-0 border-l-0 border-r-0 border-white rounded-none"
+                placeholder="<?= $escaper->escapeHtmlAttr(__('Enter your email address')) ?>">
+            <?= $block->getBlockHtml('formkey') ?>
+            <?= $recaptcha ? $recaptcha->getInputHtml(ReCaptcha::RECAPTCHA_FORM_ID_NEWSLETTER) : '' ?>
+            <button class="inline-flex flex-shrink-0  xl:mt-0 btn btn-primary bg-white text-[#a0d0de] hover:bg-white hover:text-[#a0d0de]">
+                <?= $escaper->escapeHtml(__('Subscribe')) ?>
+            </button>
+        </div>
+        <div>
+            <template x-if="displayErrorMessage">
+                <p class="flex items-center text-red">
+                    <span class="inline-block w-8 h-8 mr-3">
+                        <?= $heroicons->exclamationCircleHtml(); ?>
+                    </span>
+                    <template x-for="errorMessage in errorMessages">
+                        <span x-html="errorMessage"></span>
+                    </template>
+                </p>
+            </template>
+        </div>
+    </form>
+    <div class="w-full hidden">
+        <?= $recaptcha ? $recaptcha->getLegalNoticeHtml(ReCaptcha::RECAPTCHA_FORM_ID_NEWSLETTER) : '' ?>
+    </div>
+    <div class=" max-w-[1230px] ml-auto px-[15px] lg:w-[80%] mt-[18px] lg:mt-0 flex flex-wrap" >
+                <div class="inline-block  lg:w-auto float-none py-0 pr-[34px] m-1 text-center text-semibold">
+                    <a class="flex mt-0 text-center font-[13px] leading-[30px]  tracking-[0.17px] text-white uppercase" href="">
+                    <span class="">Free Preview</span>
+                    <sup class="sups"><?= $heroicons->eyeHtml("w-8") ?></sup>
+
+                </a></div>
+                <div class="lg:w-auto float-none inline-block py-0 pr-[34px] m-1 text-center text-semibold">
+                    <a class="flex mt-0 text-center font-[13px] leading-[30px] tracking-[0.17px] text-white uppercase" href="">
+                    <span class="">Contact Us</span>
+               <!--mailwhite-->
+                <sup class="sups"> <?= $heroicons->mailHtml("w-8 fill-[#ffffff] stroke-[#a0d0de]") ?></sup>
+                </a>
+                </div>
+                <div class=" lg:w-auto float-none inline-block py-0 pr-[34px] m-1 text-center text-semibold">
+                <a class="flex mt-0 text-center font-[13px] leading-[30px]  tracking-[0.17px] text-white uppercase" href="">
+                    <span class="">Find a Retailer</span>
+                    <!-- locationMarkerWhite -->
+                    <sup class="sups">  <?= $heroicons->locationMarkerHtml("w-8 fill-[#ffffff] stroke-[#a0d0de]") ?></sup>
+
+                </a>
+                </div>
+                <div class=" lg:w-auto float-none inline-block py-0 pr-[34px] m-1 text-center text-semibold">
+                <a class="flex mt-0 text-center font-[13px] leading-[30px] tracking-[0.17px] text-white uppercase" href="">
+                    <span class="">Saved Items (0)</span>
+                    <!-- shoppingCartWhiteHtml -->
+                    <sup class="sups">  <?= $heroicons->shoppingCartHtml("w-8 fill-[#ffffff] stroke-[#a0d0de]") ?></sup>
+
+                </a>
+                </div>
+                <div class=" lg:w-auto float-none inline-block py-0 pr-[34px] m-1 text-center text-semibold">
+                <a class="flex mt-0 text-center font-[13px] leading-[30px]  tracking-[0.17px] text-white uppercase" href="">
+                    <span class="">Retailer Login</span>
+                    <!-- userWhiteHtml -->
+                    <sup class="sups"> <?= $heroicons->userHtml("w-8 fill-[#ffffff] stroke-[#a0d0de]") ?></sup>
+
+                </a>
+                </div>
+            </div>
+
+    <script>
+        function initNewsletterForm() {
+            return {
+                errors: 0,
+                hasCaptchaToken: 0,
+                displayErrorMessage: false,
+                errorMessages: [],
+                setErrorMessages(messages) {
+                    this.errorMessages = [messages]
+                    this.displayErrorMessage = this.errorMessages.length
+                },
+                submitForm() {
+                    // Do not rename $form, the variable is expected to be declared in the recaptcha output
+                    const $form = document.querySelector('#newsletter-validate-detail');
+                    <?= $recaptcha ? $recaptcha->getValidationJsHtml(ReCaptcha::RECAPTCHA_FORM_ID_NEWSLETTER) : '' ?>
+
+                    if (this.errors === 0) {
+                        $form.submit();
+                    }
+                }
+            }
+        }
+    </script>
+</div>

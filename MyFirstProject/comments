@@ -1,0 +1,66 @@
+ <!--
+            <div class="col-sm-12 col-md-12 col-lg-12  ">
+                <div class="row" > 
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <h1 style="color: white; "> Download your shows to watch offline.</h1>
+                       <p style="color: white; ">Save your favorites easily and always have something to watch.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12  ">
+                <h1 style="color: white; "> Watch everywhere.</h1>
+                <p style="color: white; ">Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
+           
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12  ">
+                <h1 style="color: white; "> Create profiles for kids.</h1>
+                <p style="color: white; ">Send kids on adventures with their favorite characters in a space made just for them—free with your membership.</p>
+           
+            </div>
+    </div>
+</div>
+    <div class="col-sm-12 col-md-12 col-lg-sm ">
+    <div class="topbackground" style="height: 706.984px; overflow: hidden;" >
+  
+        <div class="upheader">
+              
+           <div class="header">
+               <img class="logo" src="images/Netflix-logo-red-black-png.png">  
+               <a  class="button buttontext" type="button"> Sign In</a>
+            </div>
+        </div>
+        <div class="divtop">
+        <div class="divcenter">
+        
+            <h1 class="title">Unlimited movies, TV shows, and more.</h1>
+            <h2 class="subtitle">Watch anywhere. Cancel anytime.</h2>
+            <div class="emailform">
+                <h3 class="desc">Ready to watch? Enter your email to create or restart your membership.</h3>
+                <div class="emailock" style="overflow: hidden;">
+                   <input class="emailinput" type="email" name="email" value=""  autocomplete="email" maxlength="50" minlength="5" >
+                   <button class="submitbutton" type="submit" autocomplete="off"   ><span class="submittext">Get Started ></span> <span class="rightarrow"></span></button>
+         
+               </div>
+            </div>
+        </div>
+          
+        </div>
+    </div>
+    </div>
+</div>-->
+/* The image used 
+    
+background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/87a1d9d8-a21d-4109-ba3a-c10d9055f5cf/d87b6285-b895-4a58-bca8-0a2e4cba31a3/PK-en-20220307-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
+/*  background-color: black;
+background-image: linear-gradient(to top,rgba(0,0,0,.8) 0,rgba(0,0,0,0) 60%,rgba(0,0,0,.8) 100);
+  Full height
+opacity: 0.5; 
+ .emailock.container{ display: inline-block;
+vertical-align: top;
+text-align: left;
+flex: 1 0 auto;
+
+} */

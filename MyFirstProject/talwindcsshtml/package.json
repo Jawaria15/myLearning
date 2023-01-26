@@ -1,0 +1,27 @@
+{
+  "name": "talwindcsshtml",
+  "version": "1.0.0",
+  "description": "jbj",
+  "main": "index.js",
+  "scripts": {
+    "test": "66",
+    "watch-css": "npx tailwindcss -i ./src/input-style.css -o ./public/output-style.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "tt"
+  },
+  "keywords": [
+    "123"
+  ],
+  "author": "telwind",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.18",
+    "tailwindcss": "^3.2.3"
+  },
+  "dependencies": {
+    "swiper": "^8.4.4"
+  }
+}

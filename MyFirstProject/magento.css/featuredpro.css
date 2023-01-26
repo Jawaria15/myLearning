@@ -1,0 +1,98 @@
+.block-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "LemonMilk";
+}
+ hr {
+    width: 100%;
+    max-width: 90px;
+    border-top: 6px solid #FE9B30;
+}
+.page-layout-1column .block.widget .products-grid .product-item{
+    width: 100% !important;
+}
+.featured_product .products-grid .product-item-inner {
+    background: #ffffff;
+    box-shadow: none;
+    border: 0px;
+    border-top: none;
+    left: 0;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    right: 0px;
+    z-index: 2;
+}
+.featured_product .products-grid .product-item-info:hover {
+    background: #ffffff;
+    box-shadow: none;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    z-index: 9;
+}
+.featured_product .action .tocompare{
+    display: none;
+}
+.featured_product .products-grid .product-item-info:not(:hover):not(.active) .product-item-inner {
+     border: 0; 
+    clip: unset; 
+    height: auto;
+
+    margin: 0px;
+    overflow: initial;
+    padding: 0; 
+     position: relative; 
+    width: auto;
+}
+.featured_product .block.widget .products-grid .product-item .product-item-inner, .page-layout-1column .block.widget .products-grid .product-item .product-item-inner {
+     box-shadow: none;
+    margin:0px;
+}
+.products-grid {
+    text-align: center ;
+}
+.featured_product.grid button.action.tocart.primary span:before {
+    font-family: 'FontAwesome';
+    content: '\f07a' !important;
+    color: #000;
+    border: 1px solid;
+    font-size: 23px;
+    line-height: 2;
+    height: 50px;
+    width: 50px;
+    display: block;
+    border-radius: 100%;
+    padding-right: 3px;
+}
+
+    
+    .featured_product .grid.action.towishlist:hover:before {
+        color: #FE9B30 !important;
+    }
+
+    .featured_product.grid .action.towishlist:before {
+        font-size: 23px !important;
+        line-height: 48px !important;
+        width: 50px;
+        color: #000;
+        border: 1px solid;
+        border-radius: 103px;
+        height: 50px;
+        margin: 10px !important;
+        padding-right: 3px;
+    }
+    .featured_product .grid.action.primary {
+        background: rgb(255 255 255 / 0%) !important;
+        border: 1px solid rgb(255 255 255 / 0%) !important;
+        padding: 0px;
+        height: unset;
+    }
+    button.action.tocart.primary {
+        background-color: transparent;
+        border: 0px;
+    }
+    li.product-item:hover img.product-image-photo {
+        transform: scaleX(-1);
+    }                                  

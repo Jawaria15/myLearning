@@ -1,0 +1,50 @@
+<?php
+/**
+ * Hyvä Themes - https://hyva.io
+ * Copyright © Hyvä Themes 2020-present. All rights reserved.
+ * This product is licensed per Magento install
+ * See https://hyva.io/license
+ */
+
+declare(strict_types=1);
+
+use Hyva\Theme\Model\ViewModelRegistry;
+use Hyva\Theme\ViewModel\CurrentProduct;
+use Magento\Catalog\Model\Product;
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+/** @var ViewModelRegistry $viewModels */
+
+/** @var CurrentProduct $currentProduct */
+$currentProduct = $viewModels->require(CurrentProduct::class);
+
+/** @var Product $product */
+$product = $this->hasData('product')
+    ? $this->getData('product')
+    : $currentProduct->get();
+
+if (!$product || !$product->getId()) {
+    return;
+}
+?>
+<div class="text-right">
+    <?php if ($product->getIsSalable()): ?>
+        <p class="flex items-center justify-start lg:justify-end align-middle available gap-x-2 stock"
+           title="<?= $escaper->escapeHtmlAttr(__('Availability')) ?>">
+           <span class="uppercase text-[15px] font-ArnoProRegular text-black font-normal leading-[21.4286px] text-left"><?= $escaper->escapeHtml(__('Availability:')) ?></span>
+            <span class=" hidden w-3 h-3 bg-green-500 rounded-full shrink-0"></span>
+            <span class="uppercase text-[15px] font-ArnoProRegular text-black font-normal leading-[21.4286px] text-left"><?= $escaper->escapeHtml(__('IN STOCK')) ?></span>
+        </p>
+    <?php else: ?>
+        <p class="flex items-center justify-end align-middle gap-x-2 unavailable stock"
+           title="<?= $escaper->escapeHtmlAttr(__('Availability')) ?>">
+           <span><?= $escaper->escapeHtml(__('Availability:')) ?></span>
+
+            <span class=" hidden w-3 h-3 bg-red-500 rounded-full shrink-0"></span>
+            <span><?= $escaper->escapeHtml(__('OUT OF STOCK ')) ?></span>
+        </p>
+    <?php endif; ?>
+</div>

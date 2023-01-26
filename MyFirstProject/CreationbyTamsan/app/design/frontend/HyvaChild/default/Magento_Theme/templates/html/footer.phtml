@@ -1,0 +1,45 @@
+<?php
+/**
+ * Hyvä Themes - https://hyva.io
+ * Copyright © Hyvä Themes 2020-present. All rights reserved.
+ * This product is licensed per Magento install
+ * See https://hyva.io/license
+ */
+
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+use Magento\Framework\Escaper;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+?>
+<div class="text-white body-font bg-[#a0d0de] border-t border-container-darker shadow pb-16 font-serif	">
+    <div class="container py-8 mx-auto">
+        <div class="flex flex-wrap order-first gap-y-16 flex-col">
+            <?php foreach ($block->getChildNames() as $childName): ?>
+                <?= $childName !== 'footer-copyright' ? $block->getBlockHtml($childName) : '' ?>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <div class="  bg-[#a0d0de] max-w-[356px] mx-auto ">
+    <ul class="mb-[29px] mt-0 w-full lg:inline-block flex justify-center lg:mb-0  "> 
+                   <li class=" mt-[12px] lg:float-left transition-[0.5s] w-auto mr-[15px] mb-0 p-0 text-center rounded-[50%] text-white max-w-[280px] text-base leading-[26px]  tracking-[0.26px] ">
+                      <p class="text-white font-bold text-lg lg:text-[25px] uppercase ">
+                        Follow Us:
+                      </p>
+                   </li>
+                    <li class="lg:float-left transition-[0.5s] w-auto mr-[15px] mb-0 p-0 text-center rounded-[50%] text-white max-w-[280px] text-base leading-[26px]  tracking-[0.26px] ">
+                        <a href="" target="_blank" rel="noopener"> <img width="40" height="40" loading="lazy" src="<?php echo $this->getViewFileUrl('images/s2.webp'); ?>" alt=""> </a>
+                    </li>
+                    <li class="lg:float-left transition-[0.5s] w-auto mr-[15px] mb-0 p-0 text-center rounded-[50%] text-white max-w-[280px] text-base leading-[26px]  tracking-[0.26px] ">
+                        <a href="" target="_blank" rel="noopener"> <img width="40" height="40" loading="lazy" src="<?php echo $this->getViewFileUrl('images/s4.webp'); ?>" alt=""> </a>
+                    </li>
+                    
+                    <li class="lg:float-left transition-[0.5s] w-auto mr-[15px] mb-0 p-0 text-center rounded-[50%] text-white max-w-[280px] text-base leading-[26px] tracking-[0.26px] ">
+                        <a href="" target="_blank" rel="noopener"> <img width="40" height="40" loading="lazy" src="<?php echo $this->getViewFileUrl('images/s1.webp'); ?>" alt=""></a>
+                    </li>
+                </ul>
+    </div>
+</div>
+

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Hyvä Themes - https://hyva.io
+ * Copyright © Hyvä Themes 2020-present. All rights reserved.
+ * This product is licensed per Magento install
+ * See https://hyva.io/license
+ */
+-->
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="hyva_product_slider" />
+    <body>
+        <referenceContainer name="content" >
+           
+           <block class="Magento\Cms\Block\Block" name="topbanner" before="-">
+				<arguments>
+					<argument name="block_id" xsi:type="string">topbanner</argument>
+				</arguments>
+			</block>
+             
+           <block class="Magento\Cms\Block\Block" name="ringcollection" >
+				<arguments>
+					<argument name="block_id" xsi:type="string">ringcollection</argument>
+				</arguments>
+			</block>
+            <block class="Magento\Cms\Block\Block" name="twocolblock" >
+				<arguments>
+					<argument name="block_id" xsi:type="string">twocolblock</argument>
+				</arguments>
+			</block>
+             <block class="Magento\Cms\Block\Block" name="banner" >
+				<arguments>
+					<argument name="block_id" xsi:type="string">banner</argument>
+				</arguments>
+			</block>
+              <block class="Magento\Cms\Block\Block" name="threecol" >
+				<arguments>
+					<argument name="block_id" xsi:type="string">threecol</argument>
+				</arguments>
+			</block>
+             <block class="Magento\Cms\Block\Block" name="popularstyle" >
+				<arguments>
+					<argument name="block_id" xsi:type="string">popularstyle</argument>
+				</arguments>
+			</block>
+        </referenceContainer>
+                <referenceBlock name="hero" remove="true"/>
+                 <referenceBlock name="content-1" remove="true"/>
+                <referenceBlock name="slider-1" remove="true"/>
+                 <referenceBlock name="slider-2" remove="true"/>
+
+
+
+    </body>
+</page>

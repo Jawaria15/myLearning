@@ -1,0 +1,70 @@
+<?php
+/** @var Esparksinc\BaadmeyPayementGateway\Block\Message $block */
+?>
+
+<?php if ($block->getImageUrl()): ?>
+<?php if($block->getSession()!=null):?>
+<div id="baadmey" class="baadmay-message">
+    <p class="text1"><?= $block->escapeHtml(__('Pay in 3 interest-free monthly instalments:')); ?> </p>
+    <p class="text2"><span class="text3"><?php echo $block->getFormatedPrice($block->getQuoteTotal()); ?> </span> <?= $block->escapeHtml(__('with')); ?>
+        <span><a class="text4" data-trigger="trigger" href="javascript:void(0)"><?= $block->escapeHtml(__('BaadMay')); ?> </a></span><button
+            class="primary" type="button" data-trigger="trigger">
+            <p class="text5">?</p>
+        </button>
+    </p>
+    <img data-trigger="trigger" class="img" src="<?php echo $block->getImageUrl(); ?>">
+
+
+</div>
+<div data-bind="mageInit: {
+      'Magento_Ui/js/modal/modal':{
+          'type': 'popup',
+          'title': '',
+          'trigger': '[data-trigger=trigger]',
+          'responsive': true,
+          'buttons': []
+      }}">
+    <div class="content">
+        <div id="popup123" class="overlay">
+            <div class="popup">
+                <div class="content">
+                    <span><?= $block->escapeHtml(__($block->getInstallmentsText())); ?></span>
+                    <div class="vbox-container"><div class="vbox-content" style="opacity: 1;"><div class="vbox-inline vbox-child" style="background-color: rgb(255, 255, 255);max-width: 620px;transform: scale(1);transition: transform 200ms ease 0s;">
+     
+     </a>
+     <div class="baadmay-popup-head">
+       <h3>Pay for your purchase, thora abhi, baqi?</h3>
+       <img src="https://baadmay.com/assets/baadmay-logo-white.svg" alt="baadmay logo">
+       <div class="baadmay-info-box">
+         <div class="baadmay-info-item">
+           <img src="https://baadmay.com/assets/icon-calendar.svg" alt="">
+           <p>Pay in 3 Monthly Installments</p>
+         </div>
+       </div>
+     </div>
+     <div class="baadmay-popup-content">
+       <h3 class="baadmay-color-dark text-center mt-40 mb-24">Added items to your cart?</h3>
+       <div class="baadmay-info-box compact-box">
+         <div class="baadmay-info-item">
+           <img src="https://baadmay.com/assets/icon-checkout.svg" alt="">
+           <p class="paragraph">Select BaadMay at Checkout</p>
+         </div>
+         <div class="baadmay-info-item">
+           <img src="https://baadmay.com/assets/icon-account-details.svg" alt="">
+           <p class="paragraph">Verify your account details</p>
+         </div>
+         <div class="baadmay-info-item1">
+           <img src="https://baadmay.com/assets/icon-pay-first-installment.svg" alt="">
+           <p class="paragraph">Pay only your first installment now</p>
+         </div>
+       </div>
+       <h3 class="baadmay-color-primary text-center mt-32 mt-sm-24 mb-0">Let’s shop and pay BaadMay!</h3>
+     </div>
+   </div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+<?php endif; ?>

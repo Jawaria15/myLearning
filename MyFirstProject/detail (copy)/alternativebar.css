@@ -1,0 +1,29 @@
+
+.parent:nth-child(odd) {
+        background-color: #fff;
+        }
+        .parent:nth-child(even) {
+            background-color: red;
+        }
+        /* after the first non-.parent, toggle colors */
+        div:not(.parent) ~ .parent:nth-child(odd) {
+            background-color: red;
+        }
+        div:not(.parent) ~ .parent:nth-child(even) {
+            background-color: #fff;
+        }
+        /* after the second non-.parent, toggle again */
+        div:not(.parent) ~ div:not(.parent) ~ .parent:nth-child(odd) {
+            background-color: #fff;
+        }
+        div:not(.parent) ~ div:not(.parent) ~ .parent:nth-child(even) {
+            background-color: red;
+        }
+        .display-none {
+            display: none;
+        }
+
+
+       // other sol
+       jQuery('div:visible').filter(':odd').css({'background-color': 'red'});
+jQuery('div:visible').filter(':even').css({'background-color': 'yellow'});

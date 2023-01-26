@@ -1,0 +1,47 @@
+ apache restart:
+sudo service apache2 restart 
+
+git push:
+git status
+ git commit -m "dinot font family add"
+ git add app/code/SoTechnology/Configurator/view/frontend/web/css/configurator.css
+git branch 
+ git push origin C1C-32
+
+sotech deploy:
+collingwood push branch
+
+cd collingwood-lighting
+git checkout develop
+git pull
+git merge origin/C1C-32
+git commit -m 'merge origin/C1C-32 into develop'
+git push
+cd dev/tools/Capistrano/
+cap staging deploy
+
+
+if problem
+
+esc :qwy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sotech :
+
+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
+deploy-skinstation-staging 
+
+

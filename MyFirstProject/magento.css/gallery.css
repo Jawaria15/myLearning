@@ -1,0 +1,38 @@
+.gallery-title h2 {
+    font-family: "LemonMilk";
+    text-transform: uppercase;
+    font-size: 30px;
+    color: #333;
+    text-align: center;
+
+}
+@media screen and (max-width: 1191px){
+section.owngallery .row.gal-pad {
+    padding: 0px 15px;
+}
+}
+
+section.owngallery img.img2 {
+    padding-top: 23px;
+}
+img.img7 {
+    padding-top: 20px;
+}
+section.owngallery img.img6 {
+    padding-top: 20px;
+    width: 100%;
+}
+section.owngallery {
+    text-align: center;
+    max-width: 1170px;
+    margin: 0 auto;
+}
+section.owngallery .col-lg-6 .col-md-6 .col-sm-6  .md-mid{
+    padding-right:0px !important ;
+}
+@media screen and (max-width: 991px){
+section.owngallery img {
+    width: 100%;
+    padding: 5px 0px !important;
+}
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Registration Form</title>
+</head>
+<body>
+    <form action="#" class="form" name="myForm" autocomplete="on" >
+        <!--bar-->
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+            <div class="progress-step progress-step-active "></div>
+            <div class="progress-step"></div>
+            <div class="progress-step"></div>
+            <div class="progress-step"></div>
+
+        </div>
+        <!--steps-->
+        <div class="form-step form-step-active tab input " name="form1" onkeyup="validateform()" >
+           
+            <div class="input-group"  >
+
+                <label for="firstName">FirstNmae</label>
+                <input class="input1" type="text" name="firstName" id="firstName" >
+
+            </div>
+            <div class="input-group">
+                <label for="lastName">LastName</label>
+                <input class="input2" type="text" name="lastName" id="lastName" >
+
+            </div>
+            <div class="input-group">
+                <label for="adress">Adress</label>
+                <input class="input3" type="text" name="adress" id="adress" >
+
+            </div>
+            <div class="btn-n"> 
+               <input  type="button" class="btn-next " id="btn"  value="Next" />       
+            </div> 
+        </div>
+            <!--next page-->
+            <div class="form-step tab input_1" >
+                <div >
+
+            <div class="input-group ">
+              <p id="radio-group">Gender</p>
+                    <input type="radio" id="male" name="Gender" value="male" onclick="validateform2()">
+                      <label for="male">Male</label><br>
+                      <input type="radio" id="female" name="Gender" value="female"  onclick="validateform2()">
+                      <label for="female">CSS</label><br>
+
+            </div>
+            <div class="input-group ">
+                <label for="fatherName">Father Name</label>
+                <input onkeyup="validateform2()" class="input4" type="text" name="fatherName" id="fatherName">
+
+            </div>
+                            <input type="button" class="btn-next " id="btn2"  value="Next" />       
+
+        </div>
+            <div class="btns_group">
+                <input type="button" class="btn-prev "   value="Previous" />       
+
+    
+            </div>
+        </div>
+        <div class="form-step tab"  >
+
+            <div class="input-group">
+                <select name="phone" id="phone"onclick="validateForm3()">
+                    <option value="select">please select</option>
+                  <option value="1">0332</option>
+                  <option value="2">0331</option>
+                  <option value="3">0421</option>
+                </select>
+                <input onkeyup="validateForm3()" type="tel" name="phoneNumber" id="phoneNumber">
+
+
+            </div>
+           
+            <div class="btns_group">
+                <input type="button" class="btn-prev "   value="Previous" />    
+               <input type="button" class="btn-next " id="btn3"  value="Next" />       
+           
+            </div>
+        </div>
+
+        <div class="form-step  ">
+
+            <p>Sucess</p>
+           
+            <div class="btns_group">
+                <input type="button" class="btn-prev "   value="Previous" />    
+            </div>
+        </div>
+
+    </form>
+    
+</body>
+</html>

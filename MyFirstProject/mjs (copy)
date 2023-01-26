@@ -1,0 +1,145 @@
+
+
+if (window.innerWidth > 800) {
+
+
+const pendant = document.querySelector(".pendant");
+const isometric = document.querySelector(".isometric");
+const spot = document.querySelector(".spot");
+const videoI = isometric.querySelector("video");
+const videoP = pendant.querySelector("video");
+const videoS = spot.querySelector("video");
+//END SECTION
+const section = document.querySelector("section");
+
+//SCROLLMAGIC
+const controller = new ScrollMagic.Controller();
+
+
+
+// responsive widths
+let durIso = 2450;
+let durPen = 5900;
+let durSpot = 3500;
+
+// console.log(durIso);
+//
+// var w = window.innerWidth;
+//
+// if (w = 1024) {
+//   durIso = 1500;
+//   let durPen = 5000;
+//   let durSpot = 3000;
+//   console.log(durIso);
+// }
+
+
+
+
+//Scenes
+
+
+// Scene ISO
+let sceneIso = new ScrollMagic.Scene({
+  duration: durIso,
+  triggerElement: isometric,
+  triggerHook: 0
+})
+  // .addIndicators()
+  .setPin(isometric)
+  .addTo(controller);
+
+
+//Video Animation
+let accelamountI = 0.1;
+let scrollposI = 0;
+let delayI = 0;
+
+sceneIso.on("update", e => {
+  scrollposI =(e.scrollPos-(e.startPos-300)) / 1000;
+  // console.log(e);
+});
+
+setInterval(() => {
+  delayI += (scrollposI - delayI) * accelamountI;
+
+  videoI.currentTime = delayI;
+}, 33.33);
+
+
+
+
+
+// Scene Pendant
+let scenePendant = new ScrollMagic.Scene({
+  duration: durPen,
+  triggerElement: pendant,
+  triggerHook: 0
+})
+  // .addIndicators()
+  .setPin(pendant)
+  .addTo(controller);
+
+
+//Video Animation
+let accelamountP = 0.1;
+let scrollposP = 0;
+let delayP = 0;
+
+scenePendant.on("update", e => {
+  scrollposP =(e.scrollPos-(e.startPos-300)) / 1000;
+  // console.log(e);
+});
+
+setInterval(() => {
+  delayP += (scrollposP - delayP) * accelamountP;
+
+  videoP.currentTime = delayP;
+}, 33.3);
+
+
+
+
+
+// Scene Spot
+let sceneSpot = new ScrollMagic.Scene({
+  duration: durSpot,
+  triggerElement: spot,
+  triggerHook: 0
+})
+  // .addIndicators()
+  .setPin(spot)
+  .addTo(controller);
+
+
+//Video Animation
+let accelamountS = 0.1;
+let scrollposS = 0;
+let delayS = 0;
+
+sceneSpot.on("update", e => {
+  scrollposS =(e.scrollPos-(e.startPos-100)) / 1000;
+  // console.log(e);
+});
+
+setInterval(() => {
+  delayS += (scrollposS - delayS) * accelamountS;
+
+  videoS.currentTime = delayS;
+}, 33.3);
+
+
+
+
+$(document).ready(function(){
+  $(".absolute-menu li").click(function(){
+      $(".absolute-menu li").not($(".absolute-menu li.permanent")).removeClass("active");
+      $(this).addClass("active");
+  });
+});
+
+ 
+ 
+ // end of media query
+
+}

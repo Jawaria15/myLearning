@@ -1,0 +1,25 @@
+first we need to make sa.com.conf in apache2
+2.change server name root from below paste in sa.com.conf
+<VirtualHost *:80>
+    ServerAdmin magento2@test.com
+    ServerName local.catwalk.com
+    ServerAlias www.catwalk.com.tn
+    DocumentRoot /var/www/html/catwalk/pub/
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+    <Directory /var/www/html/catwalk/pub/>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                allow from all
+</Directory>
+</VirtualHost>
+3.open hosts and add url
+like this 127.0.1.1	local.catwalk.com
+
+4.go to sql and core config.data and change urls
+
+add etlc file and run
+sudo composer update
+
+

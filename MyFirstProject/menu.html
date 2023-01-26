@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <link rel="stylesheet" href="bootstrap-grid.css">
+    <link rel="stylesheet" href="menu.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="fontFamily/IBMPlexSansArabic-Medium.ttf">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</body>
+<div>
+    <ul class="menu" id="Menu">
+        <li class="displayicon">
+            <a href="javascript:void(0);" class="icon" onclick="func()">
+                <i class="fa fa-bars"></i>
+              </a>
+        </li >
+        <li class="active">
+            <a > Home</a>
+
+        </li>
+        <li>
+           <a>About</a> 
+        </li>
+        <li>
+            <a>Contact Us</a>
+        </li>
+        <li>
+           <a> Features</a>
+        </li>
+        <li>
+           <a>Links </a> 
+        </li>
+        <li>
+            <a>Vedios</a>
+        </li>
+        <li>
+            <a>Gallery</a>
+        </li>
+        <li>
+          <a> Reviews</a> 
+        </li>
+        <li>
+           <a> Items</a>
+        </li>
+        <li>
+           <a> Sales</a>
+        </li>
+      
+    </ul>
+   
+</div>
+<script>
+    function func() {
+      var x = document.getElementById("Menu");
+      if (x.className === "menu") {
+        x.className += " responsive";
+      } else {
+        x.className = "menu";
+      }
+    }
+    </script>
+</html>

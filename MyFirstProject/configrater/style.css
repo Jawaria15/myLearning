@@ -1,0 +1,109 @@
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;    
+    width: 100%;
+}
+input{
+    display: block;
+    border: 1px solid #993b3b4a;
+    border-radius:0.3rem ;
+    width: 100%;
+    
+}
+.input-group{
+    margin: 20px 0;
+}
+/*Progress bar*/
+.progress-bar{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    counter-reset: step;
+}
+.progress-step::before{
+    counter-increment: step;
+    content: counter(step);
+}
+.progress-step-active{
+    background-color:blue !important;
+    color: cornsilk;
+}
+.progress-complete{
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+}
+input.invalid {
+    background-color: #ffdddd;
+  }
+.progress-complete::before {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 40%;
+    width: 3px;
+    background-color: #010305;
+    content: "";
+    transform: translateX(10px) rotate(-45deg);
+    transform-origin: left bottom;
+}
+.progress-complete::after {
+    position: absolute;
+    left: 3px;
+    bottom: 2px;
+    height: 4px;
+    width: 68%;
+    background-color: #010305;
+    content: "";
+    transform: translateX(10px) rotate(-45deg);
+    transform-origin: left bottom;
+}
+
+.progress-step{
+    width: 35px;
+    height: 35px;
+    background-color: darkcyan;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+/*form*/
+.form {
+    max-width: 220px;
+    margin: auto;
+    padding: 15px;
+    border: 1px solid #993b3b4a;
+    border-radius:0.3rem ;
+
+
+    
+}
+button{
+    background-color: blueviolet;
+    color: wheat;
+    width: 100%;
+    cursor: pointer;
+
+}
+.form-step{
+    display: none;
+
+} 
+.form-step-active{
+    display: block;
+
+}
+.btn-n{
+    width: 50%;
+    margin-left: auto;
+}
+button:hover{
+    box-shadow: -1px 4px 18px 2px blue}
+    .btns_group{
+        display: grid;
+        grid-template-columns: repeat(2 , 1fr);
+        gap:1.5rem;
+    }

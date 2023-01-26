@@ -1,0 +1,117 @@
+<?php
+/**
+ * Hyvä Themes - https://hyva.io
+ * Copyright © Hyvä Themes 2020-present. All rights reserved.
+ * This product is licensed per Magento install
+ * See https://hyva.io/license
+ */
+
+declare(strict_types=1);
+
+use Hyva\Theme\Model\ViewModelRegistry;
+use Hyva\Theme\ViewModel\ProductAttributes;
+use Hyva\Theme\ViewModel\ProductCompare;
+use Hyva\Theme\ViewModel\ProductPage;
+use Hyva\Theme\ViewModel\Wishlist;
+use Magento\Catalog\Model\Product;
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+/** @var ViewModelRegistry $viewModels */
+
+/** @var ProductPage $productViewModel */
+$productViewModel = $viewModels->require(ProductPage::class);
+/** @var ProductAttributes $attributesViewModel */
+$attributesViewModel = $viewModels->require(ProductAttributes::class);
+/** @var Product $product */
+$product = $productViewModel->getProduct();
+
+?>
+<div class="order-2 w-full mb-6 md:w-7/12 md:pl-5 lg:pl-10 md:pb-6 lg:w-1/2 md:mb-0 pt-0">
+    <p class="hidden md:block text-xl mb-3 md:text-3xl text-gray-900 title-font my-0">
+        <strong class="text-black text-[22px] font-medium tracking-normal leading-[24.2px]  text-left font-ArnoProRegular"><?= $escaper->escapeHtml($product->getName()) ?></strong>
+    </p>
+
+    <div class="my-2 hidden">
+        <?= $block->getChildHtml('product.info.review') ?>
+    </div>
+    <div class="flex flex-col sm:flex-row justify-between   my-[10px]">
+        <?= $block->getChildHtml("product.info.stockstatus") ?>
+        <?= $block->getChildHtml("alert.urls") ?>
+    </div>
+    <?php if ($shortDescription = $productViewModel->getShortDescription()) { ?>
+        <div class=" leading-relaxed product-description text-[15px] text-black font-ArnoProRegular mb-[10px]"><?= /* @noEscape */ $shortDescription ?></div>
+    <?php } ?>
+
+    
+
+    <div id="product-details" class="flex w-full justify-between lg:flex-row flex-col">
+        <?php foreach ($block->getAttributes() as $attributeConfig) {
+            $attribute = $attributesViewModel->getAttributeFromLayoutConfig($attributeConfig); ?>
+            <?php if ($value = $attribute['value'] ?? null) { ?>
+                <div class="  border-gray-300 py-2 last:mb-2  flex flex-col w-full lg:w-[48%] m-0 <?=/* @noEscape */ $attribute['value'] ?: "" ?>">
+                    <span class=" text-left  product-detail-label pl-1 border border-solid border-[#efefef] bg-[#efefef] m-0 font-ArnoProRegular text-black text-[13px] p-[6px]">
+                        <?= $escaper->escapeHtml($attribute['label']) ?>
+                    </span>
+                    <span class="  text-left  product-detail-value  pl-1 border border-solid border-[#efefef]  m-0 font-ArnoProRegular text-black text-[13px] p-[6px]">
+                        <?= $escaper->escapeHtml($value) ?>
+                    </span>
+                </div>
+            <?php } ?>
+        <?php } ?>
+    </div>
+
+    <?= $block->getChildHtml('product.info.form') ?>
+
+    
+
+    <div class="flex flex-col  items-end my-4 mt-0">
+
+        
+
+        <div class=" mt-0 flex  ml-auto sm:mt-0 w-full mb-[15px] lg:flex-row flex-col">
+
+            <?php if ($product->isSaleable()): ?>
+                <?= $block->getChildHtml("product.info.quantity") ?>
+            <?php endif; ?>
+            <div>
+            <?= $block->getChildHtml("product.info.price") ?>
+
+        </div>
+
+        </div>
+        <?= $block->getChildHtml('ChildCatagory') ?>
+
+
+        <?php if ($product->isSaleable()): ?>
+                <?= $block->getChildHtml("product.info.addtocart") ?>
+            <?php endif; ?>
+
+            
+    </div>
+ 
+
+    <?php if ($product->isSaleable()): ?>
+        <div class="flex mt-4 justify-end">
+            <?= $block->getChildHtml('addtocart.shortcut.buttons') ?>
+        </div>
+    <?php endif; ?>
+
+    <div class=" mt-4 justify-end hidden">
+        <?= $block->getChildHtml('product.info.addtowishlist'); ?>
+        <?= $block->getChildHtml('product.info.addtocompare'); ?>
+        <?= $block->getChildHtml('product.info.emailtofriend'); ?>
+        <?= $block->getChildHtml('product.info.additional.actions'); ?>
+    </div>
+
+    <?php if ($tierPriceBlock = $block->getChildHtml("product.price.tier")): ?>
+        <div class="py-4 my-2 tier-price-container">
+            <?= /** @noEscape */ $tierPriceBlock ?>
+        </div>
+    <?php endif; ?>
+
+    <?= $block->getChildHtml("product.info.additional") ?>
+</div>
+

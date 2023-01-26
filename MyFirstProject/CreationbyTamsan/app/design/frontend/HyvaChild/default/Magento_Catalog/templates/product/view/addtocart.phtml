@@ -1,0 +1,247 @@
+<?php
+/**
+ * Hyvä Themes - https://hyva.io
+ * Copyright © Hyvä Themes 2020-present. All rights reserved.
+ * This product is licensed per Magento install
+ * See https://hyva.io/license
+ */
+
+declare(strict_types=1);
+
+use Hyva\Theme\Model\ViewModelRegistry;
+use Hyva\Theme\ViewModel\HeroiconsOutline;
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+/** @var ViewModelRegistry $viewModels */
+
+/** @var HeroiconsOutline $heroicons */
+$heroicons = $viewModels->require(HeroiconsOutline::class);
+?>
+
+
+
+
+<div class="flex w-full justify-between">
+
+<?php 
+
+?>
+
+<div class="lg:w-[48%]"
+  x-data="{ 'showModal': false }"
+  @keydown.escape="showModal = false"
+>
+    <!-- Trigger for Modal -->
+    <button class="btn btn-primary bg-[#E6EBEF] py-2 px-[10px] text-black w-full my-[15px] lg:w-full border-2 border-solid border-[#CBD5DC] h-[72px] text-[15px] rounded-none text-center mt-[10px] hover:bg-black hover:text-white hover:underline hover:border-white " type="button" @click="showModal = true">
+        <span class="w-full">MODIFY THIS STYLE?</span></button>
+
+    <!-- Modal -->
+    <div
+        class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50"
+        x-show="showModal"
+    >
+        <!-- Modal inner -->
+        <div
+            class="max-w-3xl p-[10px] mx-auto text-left bg-white  shadow-lg relative w-full overflow-y-scroll h-[100%] lg:m-[48px] top-[16px] lg:overflow-y-none lg:overflow-hidden lg:h-auto lg:m-auto lg:top-0 m-[27px]"
+            @click.away="showModal = false"
+            x-transition:enter="motion-safe:ease-out duration-300"
+            x-transition:enter-start="opacity-0 scale-90"
+            x-transition:enter-end="opacity-100 scale-100"
+        >
+        <div class="border border-solid border-[#ccc]">
+            <!-- Title / Close-->
+            <div class="flex items-center justify-between">
+                <h5 class="  max-w-none text-center text-white text-2xl p-[15px] bg-black border border-solid border-black mb-[15px] font-Montserrat w-full">Modification Form For Style 83833</h5>
+
+                <button type="button" class="z-50 cursor-pointer absolute top-[1px] right-[1px] shadow-lg border rounded-full border-solid border-black	" @click="showModal = false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" class="p-[2px] bg-black rounded-full border-[2px] border-solid border-white   ">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- content -->
+            <div>
+            <p class="w-[98%]   lg:ml-5   lg:w-[62%] text-black text-[11px] uppercase mb-6 font-Montserrat mx-auto">send us a custom request as detailed as possible and we will get back to you shortly with a quote or follow up questions!</p>
+            <form action="" id="custcraftyour" method="post" enctype="multipart/form-data" class="inline-block h-[380px] w-full m-0">
+    <div class="mx-[15px]" id="custcraft">
+    <div id="cust_1" class="h-auto m-0 py-0 px-[5px] float-left w-full block lg:hidden" >
+			<img class="border-[1px] border-solid border-[#ccc] w-[175px] mx-auto mb-[8px]" src="<?php echo $this->getViewFileUrl('images/83833_1-_1__1.webp'); ?>" >
+		</div>
+		<div id="cust_1" class="lg:w-1/2 float-left mb-0 h-[35px] ml-0 px-[5px] py-0 flex w-full justify-between">
+			<label for="qty" class=" w-[100px] inline-block leading-[25px] font-Lato text-[12px] uppercase font-normal text-black mb-[5px]">Your email</label>
+			<input type="text" name="youremail" id="youremail" value="" class="w-[250px]   p-[3px] text-[12px] float-right  border border-solid border-[#e6e6e6] bg-[#eeeeee] h-[26px]">
+		</div>
+		<div id="cust_1" class="text-center pl-[65px] w-1/2 float-left mb-0 h-[35px] ml-0 py-0 px-[5px]" >
+			<img class="lg:block hidden  addshadow border border-solid border-[#ccc] w-[175px]  lg:absolute lg:top-[84px] lg:right-[70px]" src="<?php echo $this->getViewFileUrl('images/83833_1-_1__1.webp'); ?>" >
+		</div>
+		<div class="clear"></div>
+		<div id="cust_1" class="lg:w-1/2 float-left mb-0 h-[35px] ml-0 px-[5px] py-0 flex w-full justify-between" >
+			<label for="qty" class="w-[100px] inline-block leading-[25px] font-Lato text-[12px] uppercase font-normal text-black mb-[5px]">Telephone#</label>
+			<input type="text" name="telephoneyour" id="telephoneyour" value="" class="w-[250px]  p-[3px] text-[12px] float-right  border border-solid border-[#e6e6e6] bg-[#eeeeee] h-[26px]">
+		</div>
+                <div id="cust_1" class="lg:w-1/2 float-left mb-0 h-[35px] ml-0 px-[5px] py-0 flex w-full justify-between">
+		</div>
+		<div class="clear"></div>
+		<div id="cust_1" class="lg:w-1/2 float-left mb-0 h-[35px] ml-0 px-[5px] py-0 flex w-full justify-between" >
+			<label for="qty" class="w-[100px] inline-block leading-[25px] font-Lato text-[12px] uppercase font-normal text-black mb-[5px]">Upload file</label>
+			<input type="file" name="youruploadcustcraft[]" id="youruploadcustcraft" value="" class="w-[250px] inline float-right  p-[2px] ]" multiple="multiple">
+		</div>
+                <div id="cust_1" class="lg:w-1/2 float-left mb-0 h-[35px] ml-0 px-[5px] py-0 flex w-full justify-between">
+		</div>
+		<div class="clear"></div>
+		<p class="text-[#000] pb-[10px] ml-0 text-sm ">Please select your desired metal, color, finish level and diamond quality</p>
+	<div>
+		<div id="cust_1" class="w-full lg:w-1/2 float-left mb-0 h-[35px]  ml-0 px-[5px] py-0  flex justify-between" >
+			<label for="qty" class="w-[100px] inline-block leading-[25px] font-Lato text-[12px] uppercase font-normal text-black mb-[5px]">METAL TYPE</label>
+			<select id="metal_type" name="metal_type" class="transition border-b border-[#e0e0e0] border-solid text-xs text-black bg-[#dddddd] w-full max-w-[250px] h-[19px] pb-0 pt-0 pl-[3px] ">
+									<option value="14kt">14kt</option>
+									<option value="10kt">10kt</option>
+									<option value="18kt">18kt</option>
+									<option value="Platinum">Platinum</option>
+									<option value="Palladium">Palladium</option>
+									<option value="Silver">Silver</option>
+							</select>
+		</div>
+		<div id="cust_1" class="w-full lg:w-1/2 float-left mb-0 h-[35px]  ml-0 px-[5px] py-0  flex justify-between" >
+			<label for="qty" class="w-[100px] inline-block leading-[25px] font-Lato text-[12px] uppercase font-normal text-black mb-[5px]">METAL COLOR</label>
+			<select id="metal_color" name="metal_color" class="transition border-b border-[#e0e0e0] border-solid text-xs text-black bg-[#dddddd] w-full max-w-[250px] h-[19px] pb-0 pt-0 pl-[3px] ">
+							<option value="White">White</option>
+							<option value="Yellow">Yellow</option>
+							<option value="Pink">Pink</option>
+							<option value="Black">Black</option>
+							<option value="White/Yellow">White/Yellow</option>
+							<option value="White/Rose">White/Rose</option>
+						</select>
+		</div>
+		<div id="cust_1" class="w-full lg:w-1/2 float-left mb-0 h-[35px]  ml-0 px-[5px] py-0  flex justify-between" >
+			<label for="qty" class="w-[100px] inline-block leading-[25px] font-Lato text-[12px] uppercase font-normal text-black mb-[5px]">FINISH LEVEL</label>
+			<select id="level" name="level" class="transition border-b border-[#e0e0e0] border-solid text-xs text-black bg-[#dddddd] w-full max-w-[250px] h-[19px] pb-0 pt-0 pl-[3px] ">
+									<option value="Complete">Complete</option>
+									<option value="Semi-mount">Semi-mount</option>
+									<option value="Set with your stones">Set with your stones</option>
+									<option value="Polished Blank (no stones)">Polished Blank (no stones)</option>
+									<option value="Clip and Ship (casting)">Clip and Ship (casting)</option>
+							</select>
+		</div>
+		<div id="cust_1" class="w-full lg:w-1/2 float-left mb-0 h-[35px]  ml-0 px-[5px] py-0  flex justify-between" >
+			<label for="qty" class="w-[100px] inline-block leading-[25px] font-Lato text-[12px] uppercase font-normal text-black mb-[5px]">DIA QUALITY</label>
+			<select id="diamond_quality" name="diamond_quality" class="transition border-b border-[#e0e0e0] border-solid text-xs text-black bg-[#dddddd] w-full max-w-[250px] h-[19px] pb-0 pt-0 pl-[3px] ">
+									<option value="VS1-VS2, F-G">VS1-VS2, F-G</option>
+									<option value="SI1, G">SI1, G</option>
+									<option value="SI1-SI2, G-H">SI1-SI2, G-H</option>
+									<option value="SI2, H-I">SI2, H-I</option>
+									<option value="I1, H-I">I1, H-I</option>
+									<option value="I2, H-I">I2, H-I</option>
+									<option value="I2-I3, I-J">I2-I3, I-J</option>
+									<option value="CHAMPAGNE">CHAMPAGNE</option>
+									<option value="BLACK DIAMONDS">BLACK DIAMONDS</option>
+									<option value="LAB GROWN VS-SI1, F-G">LAB GROWN VS-SI1, F-G</option>
+									<option value="CUBIC ZIRCONIUM">CUBIC ZIRCONIUM</option>
+							</select>
+		</div>
+		<div id="cust_1" class="w-full lg:w-1/2 float-left mb-0 h-[35px]  ml-0 px-[5px] py-0  flex justify-between" >
+			<label for="qty" class="w-[100px] inline-block leading-[25px] font-Lato text-[12px] uppercase font-normal text-black mb-[5px]">FINGER SIZE</label>
+			<select id="fingersize" name="fingersize" class="transition border-b border-[#e0e0e0] border-solid text-xs text-black bg-[#dddddd] w-full max-w-[250px] h-[19px] pb-0 pt-0 pl-[3px] ">
+										<option value="3">3</option>
+						<option value="3.25">3.25</option>
+						<option value="3.50">3.50</option>
+						<option value="3.75">3.75</option>						
+										<option value="4">4</option>
+						<option value="4.25">4.25</option>
+						<option value="4.50">4.50</option>
+						<option value="4.75">4.75</option>						
+										<option value="5">5</option>
+						<option value="5.25">5.25</option>
+						<option value="5.50">5.50</option>
+						<option value="5.75">5.75</option>						
+										<option value="6">6</option>
+						<option value="6.25">6.25</option>
+						<option value="6.50">6.50</option>
+						<option value="6.75">6.75</option>						
+										<option value="7">7</option>
+						<option value="7.25">7.25</option>
+						<option value="7.50">7.50</option>
+						<option value="7.75">7.75</option>						
+										<option value="8">8</option>
+						<option value="8.25">8.25</option>
+						<option value="8.50">8.50</option>
+						<option value="8.75">8.75</option>						
+										<option value="9">9</option>
+						<option value="9.25">9.25</option>
+						<option value="9.50">9.50</option>
+						<option value="9.75">9.75</option>						
+										<option value="10">10</option>
+						<option value="10.25">10.25</option>
+						<option value="10.50">10.50</option>
+						<option value="10.75">10.75</option>						
+										<option value="11">11</option>
+						<option value="11.25">11.25</option>
+						<option value="11.50">11.50</option>
+						<option value="11.75">11.75</option>						
+										<option value="12">12</option>
+						<option value="12.25">12.25</option>
+						<option value="12.50">12.50</option>
+						<option value="12.75">12.75</option>						
+										<option value="13">13</option>
+						<option value="13.25">13.25</option>
+						<option value="13.50">13.50</option>
+						<option value="13.75">13.75</option>						
+										<option value="14">14</option>
+						<option value="14.25">14.25</option>
+						<option value="14.50">14.50</option>
+						<option value="14.75">14.75</option>						
+										<option value="15">15</option>
+						<option value="15.25">15.25</option>
+						<option value="15.50">15.50</option>
+						<option value="15.75">15.75</option>						
+							</select>
+		</div>
+                <div id="cust_1" class="lg:w-1/2 float-left mb-0 h-[35px] ml-0 px-[5px] py-0 flex w-full justify-between">
+			
+		</div>
+		<div class="clear"></div>
+		<div class="w-full justify-between lg:w-1/2 float-left mb-0 h-[35px] ml-0 px-[5px] flex" id="cust_1" >
+			<label for="qty" class="w-[100px] inline-block leading-[15px] font-bold ">Tell us how you want to modify the style</label>
+			<div class="typeselect typemessage" class="mt-[5px] mx-0 ml-[2px] inline float-right">
+				<textarea id="commentsyour" name="commentsyour" class="w-[250px]  p-[3px] text-[12px] float-right  border border-solid border-[#e6e6e6] bg-[#eeeeee] h-[77px] "></textarea>
+			</div>
+		</div>
+</div>
+		<!-- <div class="g-recaptcha inline-block mt-[54px]" data-sitekey="6Le_zjcUAAAAAB3RuuI2jQ-cnufxFBNrVksX2-CG" class="ml-[15px]"><div ><div><iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=2&amp;k=6Le_zjcUAAAAAB3RuuI2jQ-cnufxFBNrVksX2-CG&amp;co=aHR0cHM6Ly93d3cub3Zlcm5pZ2h0bW91bnRpbmdzLmNvbTo0NDM.&amp;hl=en&amp;v=5qcenVbrhOy8zihcc2aHOWD4&amp;size=normal&amp;cb=l94schw4gli5" width="304" height="78" role="presentation" name="a-hjdc2lqbqr0e" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response-3" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div> -->
+                       
+    <div class="mt-[15px] mb-[25px] mx-0 text-center  ">
+        <button type="submit" title="Send" onclick="" class="border-0 cursor-pointer mt-[4px] ml-[2px] overflow-visible p-0 w-full lg:w-auto "><span style="box-shadow: #13a3fc 0px 10px 30px -10px;" class="w-full lg:w-[145px] bg-[#13A3FC] pb-0 pt-[6px] px-[15px] text-white  rounded-md float-left uppercase text-sm h-[31px] text-center tracking-[3px]  ">Send</span></button>
+    </div>
+</div>
+</form>
+        </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<button type="submit"
+        form="product_addtocart_form"
+        title="<?= $escaper->escapeHtmlAttr(__('Add to Cart')) ?>"
+        class="btn btn-primary bg-[#E6EBEF] py-2 px-[10px] text-black w-full my-[15px] lg:w-[48%] border-2 border-solid border-[#CBD5DC] h-[72px] text-[15px] rounded-none text-center mt-[10px] hover:bg-black hover:text-white hover:underline hover:border-white "
+        id="product-addtocart-button"
+>
+    <span class="block md:hidden lg:block w-full text-center"><?= $block->getData('is_cart_configure') ?
+            $escaper->escapeHtml(__('Update item')) :
+            $escaper->escapeHtml(__('Add to Cart')) ?>
+    </span>
+</button>
+
+</div>
+
+
+<?= $block->getChildHtml('', true) ?>

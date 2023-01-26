@@ -1,0 +1,10 @@
+git status
+
+
+git add app/design/frontend/Catwalk/default/Magepow_AjaxWishlist/
+
+
+ git commit -m "jawaria work on feedbacks" 
+
+
+git stash (changes revert k lia)

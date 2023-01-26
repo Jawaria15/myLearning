@@ -1,0 +1,69 @@
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<div class="payment-method baadmay" data-bind="css: {'_active': (getCode() == isChecked())}">
+    <div class="payment-method-title field choice">
+
+        <input type="radio" name="payment[method]" class="radio" data-bind="attr: {'id': getCode()}, value: getCode(), checked: isChecked, click: selectPaymentMethod, visible: isRadioButtonVisible()" />
+        <img class="img" data-trigger="trigger" data-bind="attr: { src: getLogo() } " />
+        <div class="text1">
+            <div class="text2">
+                <div class="text3">Select
+                    <span data-trigger="trigger" class="text4">BaadMay</span> to pay in 3 interest-free monthly installments.
+                    <div class="primary-own" type="button" data-trigger="trigger">
+                        <p class="text5">?</p>
+                    </div>
+                </div>
+            </div>
+            <p class="text6">Only pay <span class="text7">
+                <span data-bind="text:getSymbol()"></span>
+                <span data-bind="text:getInstallMent()"></span></span> right now!</p>
+        </div>
+    </div>
+    <div data-bind="mageInit: { 'Magento_Ui/js/modal/modal':{ 'type': 'popup', 'title': 'Pay in 3 installments with baadmay', 'trigger': '[data-trigger=trigger]', 'responsive': true, 'buttons': [] }} ">
+        <div class="content ">
+            <div id="popup123 " class="overlay ">
+                <div class="popup ">
+                    <div class="content ">
+                        <span data-bind="text:getPopUpText() "></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="payment-method-content ">
+        <!-- ko foreach: getRegion('messages') -->
+        <!-- ko template: getTemplate() -->
+        <!-- /ko -->
+        <!--/ko-->
+        <div class="payment-method-billing-address ">
+            <!-- ko foreach: $parent.getRegion(getBillingAddressFormName()) -->
+            <!-- ko template: getTemplate() -->
+            <!-- /ko -->
+            <!--/ko-->
+        </div>
+        <!-- <p data-bind="html: getInstructions() "></p> -->
+        <div class="checkout-agreements-block ">
+            <!-- ko foreach: $parent.getRegion('before-place-order') -->
+            <!-- ko template: getTemplate() -->
+            <!-- /ko -->
+            <!--/ko-->
+        </div>
+        <div class="actions-toolbar ">
+            <div class="primary ">
+                <button class="action primary checkout" type="submit" data-bind="
+                        click: customPlaceOrder,
+                        attr: {title: $t('Place Order')},
+                        css: {disabled: !isPlaceOrderActionAllowed()},
+                        enable: (getCode() == isChecked())
+                        " disabled>
+                    <span data-bind="i18n: 'Place Order'"></span>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>

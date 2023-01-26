@@ -1,0 +1,1 @@
+php bin/magento i18n:collect-phrases –output=”/directory-to-generate-out/locale_name.csv” /path-to-your-module-directoy

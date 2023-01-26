@@ -1,0 +1,96 @@
+body{
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    margin: 0px;
+    background-color: #E7E9EB;
+ }
+.div1{
+    background-color: #E7E9EB;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    padding:15px;
+}
+form{
+    background-color: #E7E9EB;
+    box-shadow: 3px 2px 9px 0px #2a1d1d57, -4px -4px 6px 2.5px #ffffff;    
+    border-radius: 5px;
+    padding:15px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    
+    }
+input{
+    box-shadow: 3px 2px 9px 0px #2a1d1d47, -3px -3px 6px 2px #ffffff; 
+    background-color: #E7E9EB;
+    width: 100%;
+    max-width: 270px;
+    padding:10px;
+    border-radius: 5px;
+    border:none;
+    margin: 10px;
+    
+
+
+}
+button{
+    box-shadow: 3px 2px 9px 0px #2a1d1d59, -2px -3px 6px 1px #ffffff;
+    background-color: #E7E9EB;
+    padding:10px 15px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 130px;
+    border:none;
+margin: 10px;
+
+    
+}
+label{
+    border-color: white;
+    border:outset;
+    background-color: #E7E9EB;
+    padding:10px 15px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 130px;
+}
+.div2{
+    background-color: #E7E9EB;
+   
+    border-radius: 5px;
+    width: 100%;
+    max-width: 100px;
+    box-shadow: 3px 2px 9px 2px #2a1d1d47, -3px -5px 6px 2px #ffffff;
+    margin: 10px;
+
+
+}
+
+
+.div1.ff {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+h1{
+text-align: center;
+margin-bottom:0px ;
+
+}
+p{
+    text-align: center;
+    margin-top: 10px;
+
+}
+@media Screen and (max-width:566px){
+    input{
+        max-width: 100%;
+    }
+    button{
+        max-width: 100%;
+
+    }
+
+}

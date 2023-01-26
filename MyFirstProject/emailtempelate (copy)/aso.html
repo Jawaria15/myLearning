@@ -1,0 +1,297 @@
+{{template config_path="design/email/header_template"}}
+
+<center class="wrapper">
+    <table class="main" width="100%">
+
+        <tr class="email-intro topheading">
+            <td style="padding:15px;">
+                <table width="100%">
+                    <tr>
+                        <td style="text-align: left;padding: 15px;">
+                            <h1 class="greeting">{{trans "شكراً ألف على طلبك محمد %customer_name,"
+                                customer_name=$order_data.customer_name}}</h1>
+                            <p class="desc">
+                                {{trans 'استلمنا طلبك ، ماقصرت سويت الي عليك و الباقي علينا ' }}</p>
+
+                            <p class="desc">
+                                {{trans ' تم استلام طلبكم رقم<span class="no-link"> ord-%increment_id</span> بنجاح كلها
+                                ساعات و راح نرسلكم تفاصيل الشحنه و رقم التتبع ' increment_id=$order.increment_id |raw}}
+
+                            </p>
+
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="email-summary orderinformation">
+            <td style="padding:15px;">
+                <table width="100%">
+                    <tr>
+                        <td style="text-align: right;padding: 15px;">
+                            <h1 class="ordernumber">{{trans 'رقم الطلب : <span class="no-link">ORD-%increment_id</span>'
+                                increment_id=$order.increment_id |raw}}</h1>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="email-information">
+            <td class="orderdata">
+                {{depend order_data.email_customer_note}}
+                <table class="message-info">
+                    <tr>
+                        <td>
+                            {{var order_data.email_customer_note|escape|nl2br}}
+                        </td>
+                    </tr>
+                </table>
+                {{/depend}}
+
+                {{layout handle="sales_email_order_items" order_id=$order_id area="frontend"}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table width="100%">
+                    <tr>
+                        <td class="two-columns last1">
+                            <table class="column_1">
+                                <tr>
+                                    <td class="padding">
+                                        <table class="content">
+                                            <tr>
+
+                                                {{depend order_data.is_not_virtual}}
+                                                <td class="address-details">
+                                                    <h3 class="ordernumber">{{trans "عنوان الشحن والتوصيل"}}</h3>
+                                                    <p>{{var formattedShippingAddress|raw}}</p>
+                                                </td>
+                                                {{/depend}}
+                                               
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table class="column_2">
+                                <tr>
+                                    <td class="padding">
+                                        <table class="content">
+                                            <tr>
+                                                {{depend order_data.is_not_virtual}}
+                                                <td class="method-info">
+                                                    <h3 class="ordernumber">{{trans "شركة التوصيل"}}</h3>
+                                                    <p>{{var order.shipping_description}}</p>
+                                                    {{if shipping_msg}}
+                                                    <p>{{var shipping_msg}}</p>
+                                                    {{/if}}
+                                                </td>
+                                                {{/depend}}
+
+                                               
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                </table>
+
+            </td>
+        </tr>
+        <tr>
+            <td class="contactus">
+                <table width="100%">
+                    <tr>
+                        <td style="text-align: center; padding: 15px 15px 0px;">
+                            <h1 class="emailheading">يسعدنا دايما خدمتكم
+
+                            </h1>
+                            <p class="emailsubheading">
+                                من ٩ صباحاً وحتى ٥ مساءاً من السبت الى الخميس
+                            </p>
+
+                    <tr>
+                        <td>
+                            <table width="100%">
+                                <tr>
+                                    <td class="two-columns_1">
+                                        <table class="columnbutton">
+                                            <tr>
+                                                <td>
+                                                    <a href="" class="button-light"><span class="spanblack">واتس
+                                                            اب</span><img class="buttonimage"
+                                                            src="{{view url='images/Whatsap.png'}}" alt="w"></a>
+
+
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <table class="columnbutton">
+                                            <tr>
+                                                <td>
+                                                    <a href="" class="button-light"><span class="spanemail">بريد
+                                                            الكتروني</span><img class="buttonimage2"
+                                                            src="{{view url='images/mail-open.png'}}" alt="w"></a>
+
+                                                </td>
+                                            </tr>
+                                        </table>
+
+
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+
+
+
+
+
+
+
+
+
+            </td>
+        </tr>
+    </table>
+    </td>
+    </tr>
+    <tr>
+        <td class="contactus">
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td class="three_columns1">
+                            <table class="column bord">
+                                <tbody>
+                                    <tr>
+                                        <td style="padding-left: 29px;">
+                                            <table class="content ">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#"><img style="max-width: 36px;"
+                                                                    src="{{view url='images/info1_desk.webp'}}"
+                                                                    width="130" alt="f"></a>
+
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+
+                                                            <p class="brandheading">100يوم </p>
+                                                            <p class="brandsubhedaing"> استبدال و استرجاع</p>
+                                                            <p class="branddesc"> *تطبق الشروط والاحكام</p>
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="column bord">
+                                <tbody>
+                                    <tr>
+                                        <td style="padding-left: 29px;">
+                                            <table class="content ">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#"><img style="max-width: 29px;"
+                                                                    src="{{view url='images/info4_desk.webp'}}"
+                                                                    width="130" alt="f"></a>
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+
+                                                            <p class="brandheading">60 يوم </p>
+                                                            <p class="brandsubhedaing"> ضمان المصنع</p>
+                                                            <p class="branddesc">*كل عنصر مختلف</p>
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="column bord ">
+                                <tbody>
+                                    <tr>
+                                        <td style="padding-left: 22px;">
+                                            <table class="content ">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#"><img style="max-width: 59px;"
+                                                                    src="{{view url='images/info3_desk.webp'}}"
+                                                                    width="130" alt="f"></a>
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+
+                                                            <p class="brandheading">الشحن مجانا</p>
+
+                                                            <p class="brandsubhedaing">لجميع السعوديين</p>
+                                                            <p class="branddesc">*250.sr أعلاه</p>
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="column">
+                                <tbody>
+                                    <tr>
+                                        <td style="padding-left: 24px;">
+                                            <table class="content">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#"><img style="max-width: 36px;"
+                                                                    src="{{view url='images/info2_desk.webp'}}"
+                                                                    width="130" alt="f"></a>
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <p class="brandheading">%100</p>
+                                                            <p class="brandsubhedaing"> الماركات الأصلية</p>
+                                                            <p class="branddesc">*مضمونة الجودة</p>
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    </table>
+</center>
+{{template config_path="design/email/footer_template"}}

@@ -1,0 +1,38 @@
+sticky:
+<script type="text/javascript">
+     require(['jquery', 'jquery/ui'], function($){ 
+  $(window).scroll(function () {
+    if ($(window).scrollTop() > 45) {
+            $('.header-main').addClass("active");
+            $('.cms-brands .page-main .ambrands-letters-filter').addClass("active");
+            
+            
+        } else {
+            $('.header-main').removeClass("active");
+            $('.cms-brands .page-main .ambrands-letters-filter').removeClass("active");
+        }
+    });
+    });
+
+</script>
+.header-main.active {
+    position: fixed;
+    top: 0px;
+    background-color: #fff;
+    left: 0px;
+    right: 0px;
+}
+
+
+.cms-brands .page-main .ambrands-letters-filter.active {
+    position: fixed;
+    top: 74px;
+    background-color: #fff;
+    z-index: 9;
+    left: 0;
+    right: 0px;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0px;
+}
+

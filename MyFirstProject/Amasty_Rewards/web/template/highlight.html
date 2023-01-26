@@ -1,0 +1,11 @@
+<!-- ko if: highlight().visible-->
+<div data-bind="css: frontend_class" class="amrewards-highlight-container">
+    <div class="caption">
+        <span>
+            <!--ko text: captionStartText --><!-- /ko -->
+            <span style="text-decoration: underline; color: #444 !important ;" data-bind="style: {'color': highlight().caption_color}, text: highlight().caption_text"></span>
+            <!--ko text: captionEndText --><!-- /ko -->
+        </span>
+    </div>
+</div>
+<!-- /ko -->

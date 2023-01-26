@@ -1,0 +1,8 @@
+.placeholder_sec{
+    border-top: 1px solid #ccccccba;
+    padding-top: 30px;
+}
+.placeholder_sec .place-img {
+    text-align: center;
+    padding: 10px 0px;
+}

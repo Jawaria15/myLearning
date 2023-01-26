@@ -1,0 +1,21 @@
+/var/www/html/yourspareparts/app/design/frontend/Spare/Parts/web/css/source/_extend.less
+
+.page-footer {
+	.footer.content {
+		.newsletterbox {
+			span.label {
+				font-size: 19px;
+				line-height: 57px;
+				font-family: Oswald-Bold;
+				margin-left: 7px;
+			}
+		}
+	}
+}
+
+/var/www/html/yourspareparts/app/design/frontend/Spare/Parts/web/css/source/_extend.less
+
+   .switcher-dropdown {
+                    background: @background-red;
+                  //  display: none !important;
+

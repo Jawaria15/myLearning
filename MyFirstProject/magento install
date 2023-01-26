@@ -1,0 +1,14 @@
+change php version:
+sudo a2dismod php7.4 && sudo a2enmod php7.3 && sudo update-alternatives --set php /usr/bin/php7.3 && sudo service
+take sudo permission:
+sudo chmod -R 777 *^c
+
+first make database then add in magento
+
+magento:
+root
+password
+
+admin:
+admin
+admin123

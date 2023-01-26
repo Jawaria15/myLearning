@@ -1,0 +1,483 @@
+
+   body, html {
+    padding: 0px;
+    border: 0px;
+    margin: 0px;
+    /*font-family: 'Netflix Sans','Helvetica Neue',Helvetica,Arial,sans-serif;*/
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    background-color: black;
+    overflow-x: hidden;
+
+
+  }
+  .about{
+    border-bottom: 8px solid #222;;
+  }
+  a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+   color: #757575;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  a:active {
+    text-decoration: underline;
+  }
+  .topbackground {
+   
+     
+    background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("https://assets.nflxext.com/ffe/siteui/vlv3/87a1d9d8-a21d-4109-ba3a-c10d9055f5cf/d87b6285-b895-4a58-bca8-0a2e4cba31a3/PK-en-20220307-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
+  
+    /* Center and scale the image nicely*/
+    background-position: center;
+    background-repeat: no-repeat;
+    object-fit: cover;    
+
+    max-width: 100%;
+   
+    
+  }
+  .about-section {
+  
+    color: white;
+  
+  }
+  .section { 
+    display: block;
+  }
+  .logo{
+    width: 15;  }
+  
+  .button{
+      background-color:red ;
+      padding: 7px 17px; 
+     
+  }
+  .buttontext{
+    color: white;
+    margin-top: 1rem;
+    border-radius: 3px;
+    font-size: 1rem;
+    line-height: normal;
+    font-weight: 530;
+
+
+  }
+  .logo > .button{
+    display: inline;
+
+  }
+  .upheader{
+    
+      background-color: transparent;
+      transition: background-color .5s;
+      position: relative;
+      max-width: 1920px;
+      margin: 0 auto;
+      padding-top: 20px;
+      width: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 5rem;
+      z-index: 10;
+  }
+  .buttonlist{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin: 2em auto;
+     }
+  .header{
+      position: relative;
+      min-height: 50px;
+      margin: 0 3.5rem;
+      display: flex;
+      justify-content: space-between;
+  }
+
+ .allbutton{
+  
+  font-size: 1.625rem;
+  text-align: left;
+  padding: 0.8em 2.2em 0.8em 1.2em;
+    color: white;
+    background: #303030;
+    margin-bottom: 8px;
+    margin-left: 12rem;
+    margin-right: 10rem;
+    border:0;
+    font-weight: 400;
+
+    
+  }
+  .allbutton::after {
+    content: "+";
+    right: 15rem;
+    position: absolute;
+    
+   }
+
+  .footerelements{
+   list-style-type: none;
+    text-decoration: none;
+    color: #757575;
+    font-size: 13px;   
+   
+ 
+  }
+  
+  .footercontainer{
+    width:100%;
+    max-width: 900px;
+    margin: 0px auto;
+
+  }
+  .footerelement{
+    margin: 5px;
+  }
+ 
+  .footercard{
+    text-decoration: none;
+    color: #757575;
+  }
+  .footerheader{
+
+    padding-top:55px;
+    padding-bottom: 5px;
+
+  }
+  
+
+  .divtop{
+    position: relative;
+    border-bottom: 8px solid #222;
+    padding: 105px 5%;
+    margin-bottom: 0;
+    background: 0 0;
+    color: #fff;
+  }
+  .divcenter{
+    color: white;
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 1;
+    
+
+  }
+  .divaboutcenter{
+    color: white;
+    position: relative;
+    padding-top: 75px;
+    padding-bottom: 75px;
+    padding-left: 75px;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 1;
+  
+    
+
+  }
+  .title{
+    font-size: 3.125rem;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .abouttitle{
+    font-size: 3.125rem;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  .divcontainer{
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    
+    align-items: center;
+  }
+  .about-container{
+    padding: 50px 45px
+  }
+  .subtitle{
+    display: block;
+    font-size: 1.625em;
+    font-weight: 400;
+    margin: 1rem auto;
+  }
+  .animation-container{
+    position: relative;
+    overflow: hidden;
+  }
+  .vedioonimage{
+   
+    height: 100%;
+    max-width: 73%;
+    max-height: 54%;
+   position: absolute;
+   top: 55rem;
+   left:47rem;
+  }
+  .aboutPicture{
+max-width: 100%;
+height: auto;
+border:0;
+  }
+  .centertext{
+    align-self: center;
+    
+  }
+  .botborder{
+    border-bottom: 8px solid #222;
+  }
+.div3{
+  padding-left: 3rem;
+}
+.div3title{
+  
+  color: white;
+  font-size: 3.125rem;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+.div6title{
+  
+  color: white;
+  font-size: 3.125rem;
+    line-height: 1.1;
+    text-align: center;
+
+}
+.div3subtitle{
+  color: white;
+}
+  .aboutsubtitle{
+    font-size: 1.625rem;
+    font-weight: 400;
+    color: white;
+
+}
+  
+  .emailform{
+     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+  }
+  .desc{
+    padding: 0 5%;
+    max-width: 450px;
+    margin: 1rem auto;
+    font-weight: 400;
+    color: white;
+  }
+  .emailock{
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 665px;
+    justify-content: center;
+  }
+  .emailinput{
+    align-items: center;
+    height: 60px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    box-sizing: border-box;
+    font-size: 16px;
+    border: solid 1px #8c8c8c;
+    border-radius: 2px;
+    display: block;
+    line-height: normal;
+    position: relative;
+    padding-left: 50px;
+    
+    /*margin: 1rem auto;
+  margin-left: 10rem; */ }
+  .emailock>.emailinput{
+    margin: 0px;
+    width: 100%;
+  }
+  .submitbutton{
+    background-color: red;
+    color:white;
+    min-width: 74px;
+    margin: 0px;
+    border-top-left-radius: 0;
+    border-left: 1px solid #333;
+    min-height: 50px;
+    border: 0px;
+    width: 100%;
+    max-width: 215px;
+  }
+  .submitbutton span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  /*
+  
+  .submitbutton:hover span {
+    padding-right: 25px;
+  }
+  .submitbutton:hover span:after {
+    opacity: 1;
+    right: 0;
+  }*/
+  .submittext{
+    font-size: 1.625rem;
+
+
+  }
+  
+  .rightarrow {
+    height: 0.75em;
+    width: 0.35em;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 auto;
+    -moz-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    margin: 0 0 0 0.5em;
+    position: relative;
+  }
+  
+ 
+
+/*.emailinput>.submitbutton{
+  margin: 1px;
+}*/
+@media  screen and (max-width: 400px) {
+  .title {
+font-size: 1.625rem;}
+.abouttitle{
+  
+    font-size: 1.625rem;
+}
+}
+@media  screen and (max-width: 400px) {
+  .subtitle {
+font-size: 1.125rem;}
+.aboutsubtitle {
+  font-size: 1.125rem;
+  padding-left: 1px;
+  padding-right: 1px;
+align-items: center;
+}
+.about-container {
+ /* padding: 10px;
+  text-align: center;*/
+      /* padding: 50px 45px; */
+      align-self: center;
+  color: white;
+}
+.spacebetweeen{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  
+}
+.desc  {
+  font-size: 1.125rem;
+}
+.emailinput{
+  font-size: 1.125rem
+}
+.submittext {
+  font-size: 1.125rem
+}
+;}
+  
+
+
+@media  screen and (max-width: 768px) {
+  .emailock {
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    
+  }
+  
+  .emailock > .submitbutton{
+    margin: 1rem;
+  }
+  
+  
+   
+ 
+}
+@media  screen and (max-width: 768px) {
+.header{
+  margin-left: 0px;
+  margin-right: 0px;
+  justify-content: space-between;
+
+}
+
+
+}
+li{
+  
+    margin-bottom: 16px;
+  
+}
+
+@media  screen and (min-width: 768px) {
+  .desc{
+    max-width: none;
+    font-size: 1.2rem;
+}
+
+}
+@media  screen and (max-width: 545px) {
+  .emailinput{
+    height: 48px;
+    padding: 10px 10px 0;
+    width: 100%;
+  }
+  .allbutton{
+    margin-left: 0px;
+    margin-right: 0px;
+    font-size: 1.125rem;
+  }
+  .div3title{
+    font-size: 1.625rem;
+
+    
+  }
+  .div3subtitle{
+    font-size: 1.125rem;
+
+    
+  }
+  .div6title{
+    font-size: 1.625rem;
+
+    
+  }
+  .footercontainer{
+    margin: 0px
+  }
+  .divpadding{
+    padding:0px;
+  }
+}
+

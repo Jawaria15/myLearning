@@ -1,0 +1,40 @@
+.policy-shop .row.border-bo {
+    border-bottom: 2px solid lightgrey;
+    padding: 0px 0px 30px;
+}
+
+section.policy-shop .item {
+    padding: 20px;
+    display: flex;
+    border-right: 2px solid lightgray;
+    justify-content: center;
+}
+section.policy-shop .images {
+    min-width: 56px;
+}
+.policy-shop .policy-heading {
+    padding-left: 20px;
+    align-self: center;
+}
+.policy-shop .policy-heading h1 {
+    font-size: 16px;
+    font-weight: 900;
+    color: #000;
+}
+.col-xs-6 {
+    
+    width: 50% !important;
+}
+@media screen and (max-width: 575px){
+.policy-shop .policy-heading h1 {
+    font-size: 12px;
+    margin-bottom: 20px !important;
+}
+.poli-row1 {
+    padding-right: unset !important;
+}
+.poli-row2 {
+    padding-left: 0px !important;
+}
+}
+

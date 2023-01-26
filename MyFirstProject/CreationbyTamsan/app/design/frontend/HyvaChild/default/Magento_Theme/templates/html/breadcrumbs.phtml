@@ -1,0 +1,46 @@
+<?php
+/**
+ * Hyvä Themes - https://hyva.io
+ * Copyright © Hyvä Themes 2020-present. All rights reserved.
+ * This product is licensed per Magento install
+ * See https://hyva.io/license
+ */
+
+declare(strict_types=1);
+
+use Magento\Theme\Block\Html\Breadcrumbs;
+use Magento\Framework\Escaper;
+
+/** @var Escaper $escaper */
+/** @var Breadcrumbs $block */
+/** @var array[] $crumbs */
+
+?>
+<?php if ($crumbs && is_array($crumbs)): ?>
+<nav class="breadcrumbs bg-container-lighter " aria-label="Breadcrumb">
+    <div class="container pl-0">
+        <ol class="items list-reset pt-4 rounded flex flex-wrap text-grey text-sm lg:my-0 lg:ml-0 my-[15px] ml-[6px] ">
+            <?php foreach ($crumbs as $crumbName => $crumbInfo): ?>
+                <li class="item flex <?= $escaper->escapeHtmlAttr($crumbName) ?>">
+                <?php if (!$crumbInfo['first']): ?>
+                    <span aria-hidden="true" class="separator text-primary-lighter px-2">|</span>
+                <?php endif; ?>
+                <?php if ($crumbInfo['link']): ?>
+                    <a href="<?= $escaper->escapeUrl($crumbInfo['link']) ?>"
+                       class="text-[10px] text-black uppercase font-normal tracking-[1px] font-Lato hover:text-[#015292] hover:underline" 
+                       title="<?= $escaper->escapeHtmlAttr($crumbInfo['title']) ?>"
+                    ><?= $escaper->escapeHtml($crumbInfo['label']) ?></a>
+                <?php elseif ($crumbInfo['last']): ?>
+                    <a href="<?= $escaper->escapeUrl($crumbInfo['link']) ?>"
+                       class="text-[10px] text-black uppercase font-normal tracking-[1px] font-Lato hover:text-[#015292] hover:underline"
+                       aria-current="page"
+                    ><?= $escaper->escapeHtml($crumbInfo['label']) ?></a>
+                <?php else: ?>
+                    <?= $escaper->escapeHtml($crumbInfo['label']) ?>
+                <?php endif; ?>
+                </li>
+            <?php endforeach; ?>
+        </ol>
+    </div>
+</nav>
+<?php endif; ?>

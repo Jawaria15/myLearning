@@ -1,0 +1,16 @@
+two files are important in magento theme 
+registration.php
+theme.xml
+
+connect to margento server login
+ then go to
+content>configration>edit >select theme> cache >middle mouse click >flash
+to customize:
+vender>magento>module
+
+to overite we canhage module to Magento and _ then catalog with capita c 
+
+to overwrite we skip view and front end and start and copy other path accordingly
+
+we are only concerned with tempelate layout frontend phhtml xml
+sudo systemctl stop elasticsearch.service

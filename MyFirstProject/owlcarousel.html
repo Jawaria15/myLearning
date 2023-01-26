@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Owlcarousel/docs/assets/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="Owlcarousel/docs/assets/owlcarousel/assets/owl.theme.default.min.css">
+
+</head>
+<body>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="Owlcarousel/docs/assets/owlcarousel/owl.carousel.min.js"></script>
+
+    
+     <script>
+        $(document).ready(function () {
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 5
+                    }
+                }
+            })
+        });
+    </script>
+
+</body>
+<div class="wrapper">
+<div class="carasoul owl-carousel ">
+    <div class="item">
+        <h4>1</h4>
+    </div>
+    <div class="item">
+        <h4>2</h4>
+    </div>
+    <div class="item">
+        <h4>3</h4>
+    </div>
+    <div class="item">
+        <h4>4</h4>
+    </div>
+   
+</div>
+</div>
+</html>

@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+ 
+  font-family: "OswaldB";
+  src: url("../public/fonts/Oswald-Bold.woff");
+  
+}
+@font-face {
+ 
+  font-family: "OswaldR";
+  src: url("../public/fonts/Oswald-Regular.woff");  
+}
+@font-face {
+ 
+  font-family: "OswaldSB";
+  src: url("../public/fonts/Oswald-SemiBold.woff"); 
+  
+}
+@font-face {
+ 
+  font-family: "OswaldL";
+  src: url("../public/fonts/Oswald-Light.woff"); 
+  
+}
+ 

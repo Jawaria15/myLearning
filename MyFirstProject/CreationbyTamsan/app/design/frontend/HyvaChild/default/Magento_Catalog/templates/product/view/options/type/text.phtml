@@ -1,0 +1,96 @@
+<?php
+/**
+ * Hyvä Themes - https://hyva.io
+ * Copyright © Hyvä Themes 2020-present. All rights reserved.
+ * This product is licensed per Magento install
+ * See https://hyva.io/license
+ */
+
+declare(strict_types=1);
+
+use Hyva\Theme\Model\ViewModelRegistry;
+use Hyva\Theme\ViewModel\ProductPrice;
+use Magento\Catalog\Api\Data\ProductCustomOptionInterface;
+use Magento\Catalog\Block\Product\View\Options\Type\Text;
+use Magento\Catalog\Model\Product\Option;
+use Magento\Catalog\Pricing\Price\CustomOptionPrice;
+use Magento\Framework\Escaper;
+
+/** @var Text $block */
+/** @var Escaper $escaper */
+/** @var ViewModelRegistry $viewModels */
+
+$product = $block->getProduct();
+
+/** @var Option $option */
+$option = $block->getOption();
+$optionId = $option->getId();
+/** @var ProductPrice $productPriceViewModel */
+$productPriceViewModel = $viewModels->require(ProductPrice::class);
+$optionPrice = $productPriceViewModel->getCustomOptionPrice($option, CustomOptionPrice::PRICE_CODE, $product);
+if ($productPriceViewModel->displayPriceInclAndExclTax()) {
+    $optionBasePrice = $productPriceViewModel->getCustomOptionPriceExclTax($option, CustomOptionPrice::PRICE_CODE, $product);
+}
+?>
+
+<div class="flex flex-row sm:flex-row  border-gray-300 py-2 last:mb-6  w-full  lg:w-1/2 items-center  font-ArnoProRegular mb-[15px] ">
+    <label class="label text-black text-left w-1/2 lg:w-[39.666667%] sm:w-1/2 text-[13px]"
+           for="options_<?= $escaper->escapeHtmlAttr($optionId) ?>_text"
+           x-html="updateOptionPrice('<?= $escaper->escapeJs($optionId) ?>', $el)"
+    >
+        <span><?= $escaper->escapeHtml($option->getTitle()) ?></span>
+        <?php if ($option->getIsRequire()): ?>
+            <span class="sup text-sm">*</span>
+        <?php endif; ?>
+        <span><?= /* @noEscape */ $block->getFormattedPrice() ?></span>
+    </label>
+
+    <div class="sm:ml-2 text-gray-900 text-left w-full sm:w-[49%]">
+        <?php if ($option->getType() == ProductCustomOptionInterface::OPTION_TYPE_FIELD): ?>
+            <input type="text"
+                   id="options_<?= $escaper->escapeHtmlAttr($optionId) ?>_text"
+                   class="product-custom-option form-input w-full  border-b-2 border-[#bfbfbf] border-solid border-t-0 border-l-0 border-r-0 rounded-none p-0"
+                   name="options[<?= $escaper->escapeHtmlAttr($optionId) ?>]"
+                   value="<?= $escaper->escapeHtml($block->getDefaultValue()) ?>"
+                   <?php if ($option->getMaxCharacters()): ?>
+                   maxlength="<?= (int)$option->getMaxCharacters() ?>"
+                   <?php endif; ?>
+                   <?= $option->getIsRequire() ? 'required' : '' ?>
+                   data-price-amount="<?= $escaper->escapeHtmlAttr($optionPrice) ?>"
+                   data-price-type="<?= $escaper->escapeHtmlAttr($option->getPriceType()) ?>"
+                   data-option-id="<?= $escaper->escapeHtmlAttr($optionId) ?>"
+                   x-ref="option-<?= $escaper->escapeHtmlAttr($optionId) ?>"
+                   x-on:input="updateCustomOptionValue(
+                        $dispatch,
+                        '<?= $escaper->escapeHtmlAttr($optionId) ?>',
+                        $event.target
+                   )"
+            />
+        <?php elseif ($option->getType() == ProductCustomOptionInterface::OPTION_TYPE_AREA): ?>
+            <textarea id="options_<?= $escaper->escapeHtmlAttr($optionId) ?>_text"
+                      class="product-custom-option form-textarea"
+                      <?php if ($option->getMaxCharacters()): ?>
+                      maxlength="<?= (int)$option->getMaxCharacters() ?>"
+                      <?php endif; ?>
+                      <?= $option->getIsRequire() ? 'required' : '' ?>
+                      name="options[<?= $escaper->escapeHtmlAttr($optionId) ?>]"
+                      rows="5"
+                      cols="25"
+                      data-price-amount="<?= $escaper->escapeHtmlAttr($optionPrice) ?>"
+                      data-price-type="<?= $escaper->escapeHtmlAttr($option->getPriceType()) ?>"
+                      data-option-id="<?= $escaper->escapeHtmlAttr($optionId) ?>"
+                      x-ref="option-<?= $escaper->escapeHtmlAttr($optionId) ?>"
+                      x-on:input="updateCustomOptionValue(
+                        $dispatch,
+                        '<?= $escaper->escapeHtmlAttr($optionId) ?>',
+                        $event.target
+                   )"
+            ><?= $escaper->escapeHtml($block->getDefaultValue()) ?></textarea>
+        <?php endif; ?>
+        <?php if ($option->getMaxCharacters()): ?>
+            <p class="note text-sm">
+                <?= $escaper->escapeHtml(__('Maximum %1 characters', $option->getMaxCharacters())) ?>
+            </p>
+        <?php endif; ?>
+    </div>
+</div>

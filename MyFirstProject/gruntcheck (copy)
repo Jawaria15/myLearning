@@ -1,0 +1,26 @@
+Please keep this information for your records:
+
+Magento Admin Info:
+
+Username:
+admin
+Email:
+admin@gmail.com
+Password:
+******
+Your Store Address:
+http://localhost/gruntcheck/
+Magento Admin Address:
+http://localhost/gruntcheck/admin_2/
+Be sure to bookmark your unique URL and record it offline.
+Encryption Key:
+6301d0dabb17bed2255e1063f79eedb6
+Database Info:
+
+Database Name:
+gruntcheck
+Username:
+root
+Password:
+******
+For security, remove write permissions from these directories: '/var/www/html/gruntcheck/app/etc'

@@ -1,0 +1,40 @@
+<?php
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
+* @package Amasty_Rewards
+*/
+?>
+<?php 
+  $helper = $this->helper('Magento\Wishlist\Helper\Data');
+  $customer = $helper->getCustomer();
+  $url  = $this->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => true]);
+  $login_url = $block->getUrl('customer/account/login', array('referer' => base64_encode($url)));
+  $logout_url = $block->getUrl('customer/account/logout');
+  $signup_url = $block->getUrl('customer/account/create');
+?>
+<?php /** @var \Amasty\Rewards\Block\Frontend\Cart\Highlight $block */ ?>
+<div style="order: -1;" data-bind="scope: 'amasty-rewards-highlight-cart'">
+<div class="amastyrewardpoints">
+    <?php if ($customer): ?>
+<h3 class="usergreeting"><?php echo __('Hi ').$customer->getFirstname(); ?></h3>
+
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": <?php /* @escapeNotVerified */ echo $block->getJsLayout();?>
+            }
+        }
+    </script>
+    <a class="logouti" href="https://www.catwalk.com.au/customer/account/logout/" title="">(Not you? Click here)</a>
+    <?php else: ?>
+        <span class="logoutrewardpoints"><?php echo __('You’ve earnt %1 in this shopping bag', '<span class="rewardpointsdec">'.$block->getRewardPoints().' '.__('reward points').'</span>'); ?></span>
+        <span class="rw-not-logged-in"><?php echo __('Login or sign up below to claim these reward points!') ?></span>
+        <div class="reward-custom-actions">
+          <a href="<?php echo $login_url; ?>" title="" class="button-aqua-hollow"><?php echo __('Login') ?></a>
+          <a href="<?php echo $signup_url; ?>" title="" class="button-aqua-hollow"><?php echo __('Sign up') ?></a>
+        </div>
+      <?php endif; ?>
+</div>
+    </div>

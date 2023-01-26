@@ -1,0 +1,16 @@
+sudo chmod -R 777 *
+
+sudo php bin/magento s:up && sudo php bin/magento s:d:C && sudo  php bin/magento s:S:D -f
+
+sudo php bin/magento c:F
+sudo rm -rf pub/static/frontend/ rm -rf pub/static/adminhtml/
+
+
+sudo php bin/magento setup:install --base-url=http://local.magento243.com --db-host=localhost --db-name=magento24 --db-user=root --db-password=password --admin-firstname=Admin --admin-lastname=Admin --admin-email=admin@admin.com --admin-user=admin --admin-password=admin123 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1 --search-engine=elasticsearch7 --elasticsearch-host=https://my-deployment-d9daaa.es.us-central1.gcp.cloud.es.io --elasticsearch-port=9243 --elasticsearch-enable-auth=1 --elasticsearch-username=elastic --elasticsearch-password=r4ChmDG49547Jo2b1cUurmL9
+
+
+
+
+
+
+https://www.magetop.com/blog/install-magento-2-4-2-on-ubuntu/

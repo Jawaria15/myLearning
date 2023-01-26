@@ -1,0 +1,5 @@
+admin>system-config>catalog>catalog Search (elasticsearch)
+
+
+for creat user
+sudo php bin/magento admin:user:create

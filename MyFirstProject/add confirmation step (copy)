@@ -1,0 +1,44 @@
+This is working solution. Add Vendor/theme/Magento_Checkout/web/template/progress-bar.html file in your theme and add below code
+
+ <ul class="opc-progress-bar">
+    <!-- ko foreach: { data: steps().sort(sortItems), as: 'item' } -->
+        <li class="opc-progress-bar-item" data-bind="css: item.isVisible() ? '_active' : ($parent.isProcessed(item) ? '_complete' : '')">
+            <span data-bind="i18n: item.title, click: $parent.navigateTo"></span>
+        </li>
+    <!-- /ko -->
+    <li class="opc-progress-bar-item">
+          <span data-bind="i18n: 'Confirmation'"></span>
+    </li>
+</ul>
+Create checkout_onepage_success.xml in Vendor/theme/Magento_Checkout/layout/ and add below code
+
+<?xml version="1.0"?>
+<!--
+/**
+ @author Ashar Riaz
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+  <body>
+      <referenceContainer name="content">
+             <block class="Magento\Checkout\Block\Onepage\Success" name="custom.order.success" template="Magento_Checkout::progress-bar.phtml" before="-" >
+             </block>
+     </referenceContainer>    
+ </body>
+</page>
+Now add custom phtml progressbar file create Vendor/theme/Magento_Checkout/templates/progress-bar.phtml file and add below code
+
+<ul class="opc-progress-bar opc-progress-bar-successpage">
+    <li class="opc-progress-bar-item _complete">
+        <span data-bind="i18n: 'Shipping'"></span>
+    </li>
+    <li class="opc-progress-bar-item _complete">
+        <span data-bind="i18n: 'Review & Payments'"></span>
+    </li>
+    <li class="opc-progress-bar-item _active _complete">
+        <span data-bind="i18n: 'Confirmation'"></span>
+    </li>
+   </ul>
+Done !!
+
+

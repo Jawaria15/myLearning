@@ -1,0 +1,41 @@
+webkit pathof sql 
+sed -i 's/DEFINER=[^*]*\*/\*/g' (remove define so that other user name password not cause problem in sql)
+mysql -u root -p catwalk < catwalk_7_july_2022.sql
+Enter password: 
+
+
+clonning:
+
+
+git clone git@bitbucket.org:snexiate/cw-community.git -b catwalk_ce catwalk
+
+
+
+
+
+
+
+cat id_rsa.pub
+10:31
+mv id_rsa .ssh/id_rsa
+10:31
+mv id_rsa.pub .ssh/id_rsa.pub
+10:31
+cat .ssh/id_rsa.pub
+10:33
+wget http://149.28.162.18/catwalk_7_july_2022.sql
+
+
+
+
+
+
+
+
+
+
+
+ls id_rsa.pub 
+cat id_rsa.pub 
+rm -rf id_rsa
+

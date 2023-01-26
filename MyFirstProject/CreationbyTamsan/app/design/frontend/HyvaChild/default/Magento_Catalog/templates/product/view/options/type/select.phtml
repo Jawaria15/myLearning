@@ -1,0 +1,39 @@
+<?php
+/**
+ * Hyvä Themes - https://hyva.io
+ * Copyright © Hyvä Themes 2020-present. All rights reserved.
+ * This product is licensed per Magento install
+ * See https://hyva.io/license
+ */
+
+declare(strict_types=1);
+
+use Hyva\Theme\Model\ViewModelRegistry;
+use Hyva\Theme\ViewModel\CustomOption;
+use Magento\Catalog\Block\Product\View\Options\Type\Select;
+use Magento\Framework\Escaper;
+
+/** @var Select $block */
+/** @var Escaper $escaper */
+/** @var ViewModelRegistry $viewModels */
+
+$option = $block->getOption();
+$product = $block->getProduct();
+
+/** @var CustomOption $customOptionsViewModel */
+$customOptionsViewModel = $viewModels->require(CustomOption::class);
+
+?>
+<div class="flex flex-row sm:flex-row  border-gray-300 mb-[15px] last:mb-6 w-full  lg:w-[49%] items-center  font-ArnoProRegular ">
+    <label class="label text-black text-left w-[52%] sm:w-[39.666667%] h-[25px] mb-0 text-[13px] pr-[15px] "
+           for="select_<?= $escaper->escapeHtmlAttr($option->getId()) ?>"
+    >
+        <span><?= $escaper->escapeHtml($option->getTitle()) ?></span>
+        <?php if ($option->getIsRequire()): ?>
+            <span class="sup text-sm">*</span>
+        <?php endif; ?>
+    </label>
+    <div class="sm:ml-2 text-gray-900 text-left w-full lg:w-[51.702%] border-b-2 border-[#bfbfbf] border-solid border-t-0 border-l-0 border-r-0 rounded-none">
+        <?= $customOptionsViewModel->getOptionHtml($option, $product); ?>
+    </div>
+</div>

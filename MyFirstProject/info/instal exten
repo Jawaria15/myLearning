@@ -1,0 +1,3 @@
+to install extension 
+extract fle go to registration.php
+find vendor name make foldr of vendor name in app/code and then in vendor creat module name and copy files
