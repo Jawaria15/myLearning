@@ -92,9 +92,12 @@
                </button>
             </div>
             <!-- content -->
+
             <div class="w-auto  mx-auto   inline-block mt-[15px]">
                <div id="content" class="w-full mx-auto inline-block font-ArnoProRegular text-[13px] float-left relative min-h-[1px] px-[15px]">
                   <div class="block w-auto  mx-auto  ">
+                  <form action="" id="addToPegForm">
+
                      <div class="lg:w-1/2 md:w-full  mx-auto   inline-block float-left relative min-h-[1px] pl-0 pr-[15px]">
                         <div class="text-center font-ArnoProRegular text-black text-[13px]" >
                            <img  id="img01" width="300" height="300">
@@ -208,7 +211,7 @@
                                  <div class="  mx-auto   inline-block w-full">
                                     <div class="md:w-1/2  pl-[14px]w-[41.66%] float-left relative min-h-[1px] pr-[15px]">ASSEMBLE HEAD ?</div>
                                     <div class="md:w-1/2 float-left relative min-h-[1px] pr-[15px] pl-[14px]col-xs-7 top-[-8px]">
-                                       <span class="   text-[22px] float-right" id="showprice_carousel" class="text-[22px] float-right"><span class="float-left  left-[-47px] relative text-[13px] font-AronProRegular top-[10px]">YES</span><input id="assemblepopup" name="assemblepopup" type="radio" class="ml-[10px] left-[-52px] relative"><span class="relative font-AronProRegular text-[13px]">NO</span><input id="assemblepopupno" name="assemblepopup" type="radio" class="ml-[10px]  relative left-[-40px]"><span class="price" class=" relative">$20.00</span></span>
+                                       <span class="   text-[22px] float-right" id="showprice_carousel" class="text-[22px] float-right"><span class="float-left  left-[-47px] relative text-[13px] font-AronProRegular top-[10px]">YES</span><input id="assemblepopup" name="assemblepopup" type="radio" class="ml-[10px] left-[-52px] relative"><span class="relative font-AronProRegular text-[13px]">NO</span><input id="assemblepopupno" name="assemblepopup" type="radio" class="ml-[10px]  relative left-[-9px]"><span class="price" class=" relative">$20.00</span></span>
                                     </div>
                                  </div>
                               </div>
@@ -218,7 +221,7 @@
                               <div class="md:w-full  mx-auto   inline-block float-left w-full relative min-h-[1px] px-[15px]">
                                  <div class="  mx-auto   inline-block w-full">
                                     <div class="md:w-full  mx-auto   inline-block float-left w-full relative min-h-[1px] px-[15px]" class="text-center">
-                                       <button id="addToCart_carousel" type="button" title="Add to Cart" class="w-[95%] border-2 border-solid border-[#cbd5dc] h-[60px] bg-[#E6EBEF] py-2 px-[10px]  hover:bg-black hover:text-white hover:underline hover:border-white" onclick="beforeCarousel();">ADD PEG HEAD</button>
+                                       <button id="addToCart_carousel" type="submit" title="Add to Cart" class="w-[95%] border-2 border-solid border-[#cbd5dc] h-[60px] bg-[#E6EBEF] py-2 px-[10px]  hover:bg-black hover:text-white hover:underline hover:border-white" >ADD PEG HEAD</button>
                                     </div>
                                  </div>
                               </div>
@@ -226,13 +229,17 @@
                            <div class="clear"></div>
                         </div>
                      </div>
+                     </form>
                   </div>
                </div>
             </div>
+                     
          </div>
       </div>
    </div>
 </div>
+
+<button onclick="myFunction()">session check</button>
 <script>
     function setval(event) {
 
@@ -289,6 +296,7 @@ const getsubcatagories = (catagories) => {
 }
 
 function subchildval(event2) {
+
 
 
     if (event2) {
@@ -380,6 +388,7 @@ const getProducts = (catagories) => {
    }
    slider();
     var span = document.getElementsByClassName("close")[0];
+
     span.onclick = function() {
     modal.style.display = "none";
    }
@@ -447,7 +456,7 @@ function slider() {
 }
 
 const getProductDetail = (Product) => {
-   
+
 
     var productName = document.getElementById("productName");
     var shortDescription = document.getElementById("centersizeDescription");
@@ -462,6 +471,9 @@ const getProductDetail = (Product) => {
 
     var center_size_p_carousel = document.getElementById("center_size_p_carousel");
     var cust_op = document.getElementById("cust-op");
+
+    var button=document.getElementById("addToCart_carousel");
+
 
     while (cust_op.firstChild) {
 
@@ -478,14 +490,16 @@ cust_op.removeChild(cust_op.lastChild);
     center_size_p_carousel.innerHTML=Product[0][6];
     var count1=0;
     var totalopt=0;
-   
+    var selectedvaluesarr = [] ;
+    
+
     for (var i = 0; i < Product[0][7].length; i++) {
       var div = document.createElement('div');
        
       var span = document.createElement('span'); 
       span.classList.add("custopTitle");
 
-      var select = document.createElement('select');
+       var select = document.createElement('select');
       select.classList.add("custopdropdown");
 
  
@@ -496,6 +510,7 @@ cust_op.removeChild(cust_op.lastChild);
       count1=count1+totalopt;
      
       totalopt= getOccurrence(Product[0][9], Product[0][7][i]);
+      
    
       for(var j=0; j<totalopt; j++){
         
@@ -505,29 +520,89 @@ cust_op.removeChild(cust_op.lastChild);
          option.textContent = Product[0][8][count1+j];
 
          select.appendChild(option);
-         
 
 
 
+       
 
-
-      }
       
-      count=count+totalopt
+      }
+     
+    
+      count=count+totalopt;
 
      div.appendChild(select);
-
-      
-
+    
+ 
   
-
 
     }
  
+    button.onclick=function(){
+      var formdata = [] ;
+      event.preventDefault();
+
+formdata.push([productName.id,productName.innerHTML]);
+
+formdata.push([shortDescription.id,shortDescription.innerHTML]);
+
+formdata.push([price.id,price.innerHTML]);
+
+formdata.push([approxpolisheddwt.id,approxpolisheddwt.innerHTML]);
+
+formdata.push([semimount_carousel.id,semimount_carousel.innerHTML]);
+
+
+formdata.push([center_stone.id,center_stone.innerHTML]);
+
+formdata.push([center_size_p_carousel.id,center_size_p_carousel.innerHTML]);
+for(i=0;i<Product[0][7].length; i++){
+
+var element = document.getElementsByClassName("custopdropdown")[i];
+//  console.log(element)
+var name=Product[0][7][i][0];
+formdata.push([name,getSelectValues(element)[0]]);
+
+
+}
+// console.log( selectedvaluesarr);
+console.log(formdata);
+const jsonArray = JSON.stringify(formdata);
+window.sessionStorage.setItem("items", jsonArray);
+
+
+
+}
+
+
+  
+
+}
+function myFunction() {
+   var storedArray = JSON.parse(sessionStorage.getItem("items"));
+var i;
+for (i = 0; i < storedArray.length; i++) {
+             console.log(storedArray[i]);
+}}
+
+function getSelectValues(select) {
+  var result = [];
+  var options = select && select.options;
+  var opt;
+
+  for (var i=0, iLen=options.length; i<iLen; i++) {
+    opt = options[i];
+
+    if (opt.selected) {
+      result.push(opt.value || opt.text);
+    }
+  }
+  return result;
 }
 function getOccurrence(array, value) {
    count = array.filter(x => x == String(value)).length;
    return count;
-}
+}  
+
 
 </script>
