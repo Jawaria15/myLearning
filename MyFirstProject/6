@@ -1,169 +1,102 @@
-.vbox-container {
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	overflow-x: hidden;
-	overflow-y: scroll;
-	overflow-scrolling: touch;
-	-webkit-overflow-scrolling: touch;
-	z-index: 20;
-	max-height: 100%;
-	padding: 30px 0;
-}
-.vbox-title {
-	font-size: 12px;
-	background-color: var(--vbox-title-background);
-	width: var(--vbox-title-width);
-	border-radius: var(--vbox-title-radius);
-	padding: 12px 54px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	display: block;
-	line-height: 1;
-	position: fixed;
-	z-index: 98;
-	text-align: center;
-	margin: 0 auto;
-	color: var(--vbox-tools-color);
-}
-.vbox-share {
-	line-height: 1;
-	position: fixed;
-	z-index: 98;
-	text-align: center;
-	margin: 0 auto;
-	color: var(--vbox-tools-color);
-}
-.vbox-content {
-	text-align: center;
-	width: 100%;
-	position: relative;
-	overflow: hidden;
-	padding: 20px 4%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 100%;
-}
-.baadmay-modal-container {
-	.vbox-inline {
-		box-shadow: none !important;
-		border-radius: 15px;
-		overflow: hidden;
-		padding: 40px;
-		h3 {
-			font-family: 'Nunito', sans-serif;
-			font-style: normal;
-			font-weight: 700;
-			font-size: 22px;
-			line-height: 30px;
-			color: #FFFFFF;
-			margin: 0 0 16px;
-			font-family: 'Nunito', sans-serif;
-			font-style: normal;
-			font-weight: 700;
-			font-size: 22px;
-			line-height: 30px;
-			color: #FFFFFF;
-			margin: 0 0 16px;
-		}
-	}
-}
-.vbox-inline {
-	position: relative;
-	width: 100%;
-	margin: 0 auto;
-}
-.venoratio {
-	position: relative;
-	width: 100%;
-	margin: 0 auto;
-}
-.vbox-child {
-	box-shadow: 0 0 12px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);
-	max-width: 100%;
-	text-align: initial;
-	padding: var(--vbox-padding);
-}
-.baadmay-popup-close {
-	width: 24px;
-	height: 24px;
-	border-radius: 100%;
-	background: rgba(255, 255, 255, .15);
-	position: absolute;
-	top: 23px;
-	right: 20px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-.baadmay-popup-head {
-	text-align: center;
-}
-.baadmay-info-box {
-	background: #FFFFFF;
-	box-shadow: 0px 10px 20px rgb(26 10 54 / 8%);
-	border-radius: 10px;
-	padding: 32px;
-	display: flex;
-	justify-content: space-around;
-	max-width: 404px;
-	margin: 0 auto;
-	background: #FFFFFF;
-	box-shadow: 0px 10px 20px rgb(26 10 54 / 8%);
-	border-radius: 10px;
-	padding: 32px;
-	display: flex;
-	justify-content: space-around;
-	max-width: 404px;
-	margin: 0 auto;
-}
-.baadmay-info-item {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	flex: 1;
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	flex: 1;
-}
-.baadmay-color-dark {
-	color: #213D46 !important;
-}
-.text-center {
-	text-align: center !important;
-}
-.mb-24 {
-	margin-bottom: 24px !important;
-}
-.mt-40 {
-	margin-top: 40px !important;
-}
-.baadmay-info-box.compact-box {
-	background: transparent;
-	box-shadow: none;
-	border-radius: 0;
-	padding: 0 0 24px;
-	border-bottom: 1px solid #E8E8E8;
-	max-width: 100%;
-}
-.baadmay-color-primary {
-	color: #6016EB !important;
-}
-.mb-0 {
-	margin-bottom: 0 !important;
-}
-.mt-32 {
-	margin-top: 32px !important;
-}
+<?php
+namespace Ibnab\CategoriesSide\Observer\Product;
 
+use Magento\Framework\Event\ObserverInterface;
+use Magento\Framework\App\RequestInterface;
+
+
+
+class AddProduct implements ObserverInterface
+{
+    
+   
+    protected $_productRepository;
+    protected $_cart;
+    // protected $_checkoutSession;
+    protected $_cookieManager;
+    protected $_cookieMetadataFactory;
+    protected $customOptionRepository;
+
+
+
+    public function __construct(\Magento\Catalog\Model\ProductRepository $productRepository, \Magento\Checkout\Model\Cart $cart ,\Magento\Framework\Stdlib\CookieManagerInterface $cookieManager,
+    \Magento\Framework\Stdlib\Cookie\CookieMetadataFactory $cookieMetadataFactory,\Magento\Catalog\Api\ProductCustomOptionRepositoryInterface $customOptionRepository ){
+        $this->_productRepository = $productRepository;
+        $this->_cart = $cart;
+        // $this->_checkoutSession = $checkoutSession;
+        $this->_cookieManger = $cookieManager;
+        $this->_cookieMetadataFactory = $cookieMetadataFactory;
+        $this->customOptionRepository = $customOptionRepository;
+
+    }
+
+    public function execute(\Magento\Framework\Event\Observer $observer)
+    {
+        $writer = new \Zend_Log_Writer_Stream(BP . '/var/log/custom.log');
+    $logger = new \Zend_Log();
+   $logger->addWriter($writer);
+       
+        $item=$observer->getEvent()->getData('quote_item');
+        $product=$observer->getEvent()->getData('product');
+    //     // $item = ( $item->getParentItem() ? $item->getParentItem() : $item );
+        $product->getQty();
+
+      
+        
+        $id=$this->_cookieManger->getCookie('id');
+        $customopt=$this->_cookieManger->getCookie('customopt');
+        $customopt=json_decode($customopt);
+        
+        // $customopt=stripslashes($customopt);
+        $customoptArray = explode (",", $customopt);
+        
+        // foreach($customoptArray as $value){
+        // $logger->info("asdasdasdasd ".$value);
+        // }
+        // die('');
+        // $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        // $product = $objectManager->create('\Magento\Catalog\Model\Product')->load($id);
+        $_product = $this->_productRepository->getById($id);
+
+    
+   $count=0;
+   $logger->info('Product Name '.$_product->getName());
+    foreach ($_product->getOptions() as $o) 
+    {     
+
+        foreach ($o->getValues() as $value) 
+        {
+            foreach($customoptArray as $customopt){
+
+                $customoptArrayValue = trim($customopt, "[");
+                $customoptArrayValue = trim($customoptArrayValue , "]");
+                $logger->info($customoptArrayValue);
+
+                $customoptArrayValue = str_replace('"', '', $customoptArrayValue);;
+                
+                if ($value['title'] == $customoptArrayValue ){
+                    $logger->info('Value title is '.$value['title'].'After trim '.$customoptArrayValue.' Option id is '.$value['option_id']);
+                    // $logger->info();
+                    // $logger->info('Option type id '.$value['option_type_id']);
+                    $options[$value['option_id']] = $value['option_type_id'];
+                }
+            }
+            
+            // $logger->info(print_r($value, true));
+            
+    
+        }           
+    }
+    $logger->info($count);
+
+    $params = array();
+    $logger->info($options);
+    $params['qty'] = 1;
+    $params['options'] = $options;
+    $logger->info(print_r($params, true));
+        $this->_cart->addProduct($_product, $params);
+        $this->_cart->save();
+
+    }
+   
+}
