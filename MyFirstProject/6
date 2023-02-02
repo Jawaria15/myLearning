@@ -25,6 +25,8 @@ class AddProduct implements ObserverInterface
         $this->_cart = $cart;
         // $this->_checkoutSession = $checkoutSession;
         $this->_cookieManger = $cookieManager;
+
+        
         $this->_cookieMetadataFactory = $cookieMetadataFactory;
         $this->customOptionRepository = $customOptionRepository;
 
@@ -39,30 +41,32 @@ class AddProduct implements ObserverInterface
         $item=$observer->getEvent()->getData('quote_item');
         $product=$observer->getEvent()->getData('product');
     //     // $item = ( $item->getParentItem() ? $item->getParentItem() : $item );
-        $product->getQty();
+     
 
-      
+
         
         $id=$this->_cookieManger->getCookie('id');
         $customopt=$this->_cookieManger->getCookie('customopt');
-        $customopt=json_decode($customopt);
-        
-        // $customopt=stripslashes($customopt);
-        $customoptArray = explode (",", $customopt);
-        
-        // foreach($customoptArray as $value){
-        // $logger->info("asdasdasdasd ".$value);
-        // }
-        // die('');
-        // $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-        // $product = $objectManager->create('\Magento\Catalog\Model\Product')->load($id);
-        $_product = $this->_productRepository->getById($id);
+       
 
-    
+        $customopt=json_decode($customopt, true);;
+       
+        $customoptArray = explode ('",', $customopt);
+        if($id){
+            // $product->getQty();
+            $_product = $this->_productRepository->getById($id);
+
+
+      
+       $_product = $this->_productRepository->getById($id);
+
+        $params = array();
+
    $count=0;
-   $logger->info('Product Name '.$_product->getName());
+   if($_product->getHasOptions()) {
     foreach ($_product->getOptions() as $o) 
     {     
+
 
         foreach ($o->getValues() as $value) 
         {
@@ -76,26 +80,41 @@ class AddProduct implements ObserverInterface
                 
                 if ($value['title'] == $customoptArrayValue ){
                     $logger->info('Value title is '.$value['title'].'After trim '.$customoptArrayValue.' Option id is '.$value['option_id']);
-                    // $logger->info();
-                    // $logger->info('Option type id '.$value['option_type_id']);
+                   
                     $options[$value['option_id']] = $value['option_type_id'];
                 }
             }
             
-            // $logger->info(print_r($value, true));
             
     
         }           
     }
-    $logger->info($count);
+         $params['options'] = $options;
 
-    $params = array();
-    $logger->info($options);
+   }
+
+
     $params['qty'] = 1;
-    $params['options'] = $options;
     $logger->info(print_r($params, true));
-        $this->_cart->addProduct($_product, $params);
-        $this->_cart->save();
+    
+       
+  
+            $this->_cart->addProduct($_product, $params);
+            $this->_cart->save();
+            $metadata = $this->_cookieMetadataFactory->createPublicCookieMetadata();
+            $metadata->setPath('/');
+        $this->_cookieManger->deleteCookie(
+            'id',$metadata);
+        }
+        else{
+            // $this->_messageManager->addError(__('your custom message'));
+                //set false if you not want to add product to cart
+                $logger->info('Value title is ');
+
+                $observer->getRequest()->setParam('product', false);
+   
+
+        }
 
     }
    
