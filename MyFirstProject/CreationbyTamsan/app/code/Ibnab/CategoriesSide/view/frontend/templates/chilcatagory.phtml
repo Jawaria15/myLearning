@@ -85,7 +85,7 @@
             <!-- Title / Close-->
             <div class="flex items-center justify-between">
                <h5 class="  max-w-none text-center text-white text-2xl p-[15px] bg-black border border-solid border-black font-Montserrat w-full">Peg Head for your Engagement Ring</h5>
-               <button type="button" class="close z-50 cursor-pointer absolute top-[1px] right-[1px] shadow-lg border rounded-full border-solid border-black	" @click="showModal = false">
+               <button type="button" class="close1 z-50 cursor-pointer absolute top-[1px] right-[1px] shadow-lg border rounded-full border-solid border-black	" @click="showModal = false">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" class="p-[2px] bg-black rounded-full border-[2px] border-solid border-white   ">
                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M6 18L18 6M6 6l12 12" />
                   </svg>
@@ -239,7 +239,7 @@
    </div>
 </div>
 
-<button onclick="myFunction()">session check</button>
+<!-- <button onclick="myFunction()">session check</button> -->
 <script>
     function setval(event) {
 
@@ -288,10 +288,11 @@ const getsubcatagories = (catagories) => {
         el.textContent = opt;
         el.value = catagories[i][0];
         mySelect.appendChild(el);
+        
 
 
     }
-
+   //  mySelect.selectedIndex = 0;
 
 }
 
@@ -354,7 +355,7 @@ const getProducts = (catagories) => {
       img.onclick =function(){
          modal.style.display = "block";
          modalImg.src = this.src;
-         
+
          if (this.alt) {
                let productId = this.alt;
                const postUrl = "http://local.creationbytamsan.com/ajaxtutorial/result2/products/";
@@ -376,23 +377,25 @@ const getProducts = (catagories) => {
                    })
                    .then(response => response.json())
                    .then(data => {
-                       getProductDetail(data);
+
+
+                     getProductDetail(data,this.src);
                    });
-       
+
           }       
-       
+
       }       
      
 
 
    }
-   slider();
-    var span = document.getElementsByClassName("close")[0];
+    var span = document.getElementsByClassName("close1")[0];
 
     span.onclick = function() {
     modal.style.display = "none";
    }
 
+   slider();
 
 
 }
@@ -455,7 +458,7 @@ function slider() {
 
 }
 
-const getProductDetail = (Product) => {
+const getProductDetail = (Product,src) => {
 
 
     var productName = document.getElementById("productName");
@@ -528,7 +531,7 @@ cust_op.removeChild(cust_op.lastChild);
       
       }
      
-    
+   //  select.selectedIndex = 0;
       count=count+totalopt;
 
      div.appendChild(select);
@@ -537,38 +540,59 @@ cust_op.removeChild(cust_op.lastChild);
   
 
     }
- 
+    var customopt = [] ;
+
     button.onclick=function(){
-      var formdata = [] ;
+      // var formdata = [] ;
+      // var customopt2 = [] ;
+
+
       event.preventDefault();
+//       formdata.push(["id",Product[0][10]])
+//       formdata.push(["image",src]);
 
-formdata.push([productName.id,productName.innerHTML]);
+// formdata.push([productName.id,productName.innerHTML]);
 
-formdata.push([shortDescription.id,shortDescription.innerHTML]);
+// formdata.push([shortDescription.id,shortDescription.innerHTML]);
 
-formdata.push([price.id,price.innerHTML]);
+// formdata.push([price.id,price.innerHTML]);
 
-formdata.push([approxpolisheddwt.id,approxpolisheddwt.innerHTML]);
+// formdata.push([approxpolisheddwt.id,approxpolisheddwt.innerHTML]);
 
-formdata.push([semimount_carousel.id,semimount_carousel.innerHTML]);
+// formdata.push([semimount_carousel.id,semimount_carousel.innerHTML]);
 
 
-formdata.push([center_stone.id,center_stone.innerHTML]);
+// formdata.push([center_stone.id,center_stone.innerHTML]);
 
-formdata.push([center_size_p_carousel.id,center_size_p_carousel.innerHTML]);
+// formdata.push([center_size_p_carousel.id,center_size_p_carousel.innerHTML]);
 for(i=0;i<Product[0][7].length; i++){
 
 var element = document.getElementsByClassName("custopdropdown")[i];
 //  console.log(element)
 var name=Product[0][7][i][0];
-formdata.push([name,getSelectValues(element)[0]]);
+// formdata.push([name,getSelectValues(element)[0]]);
+// customopt2.push([name,getSelectValues(element)[0]]);
+customopt.push(getSelectValues(element)[0]);
+
 
 
 }
 // console.log( selectedvaluesarr);
-console.log(formdata);
-const jsonArray = JSON.stringify(formdata);
-window.sessionStorage.setItem("items", jsonArray);
+// console.log(formdata);
+// const jsonArray = JSON.stringify(formdata);
+const jsonArraycust = JSON.stringify(customopt);
+// const jsonArraycust2 = JSON.stringify(customopt2);
+// console.log(JSON.parse(jsonArraycust));
+
+// window.sessionStorage.setItem("items", jsonArray);
+
+// setCookie('user', jsonArray);
+setCookie('customopt', jsonArraycust);
+// setCookie('customopt2', jsonArraycust2);
+var d = parseInt(Product[0][10]);
+
+setCookieVariable('id',d,30);
+
 
 
 
@@ -578,12 +602,8 @@ window.sessionStorage.setItem("items", jsonArray);
   
 
 }
-function myFunction() {
-   var storedArray = JSON.parse(sessionStorage.getItem("items"));
-var i;
-for (i = 0; i < storedArray.length; i++) {
-             console.log(storedArray[i]);
-}}
+
+
 
 function getSelectValues(select) {
   var result = [];
@@ -603,6 +623,84 @@ function getOccurrence(array, value) {
    count = array.filter(x => x == String(value)).length;
    return count;
 }  
+// function myFunction() {
+//    var storedArray = JSON.parse(sessionStorage.getItem("items"));
+// var i;
+// for (i = 0; i < storedArray.length; i++) {
+//              console.log(storedArray[i]);
+// }}
+const setCookie = (name, json)=>{
+
+let cookieValue = '';
+let expire = '';
+let period = '';
+
+//Specify the cookie name and value
+cookieValue = name + '=' + JSON.stringify(json) + ';';
+
+//Specify the path to set the cookie
+cookieValue += 'path=/ ;';
+
+//Specify how long you want to keep cookie
+period = 30; //days to store
+expire = new Date();
+expire.setTime(expire.getTime() + 1000 * 3600 * 24 * period);
+expire.toUTCString();
+cookieValue += 'expires=' + expire + ';';
+//Set cookie
+document.cookie = cookieValue;
+};
+const setCookieVariable= (name,value,days)=>{
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+};
+
+
 
 
 </script>
+
+
+
+
+
+
+
+<!-- 
+   // function getCookie(name) {
+//   const value = `; ${document.cookie}`;
+//   const parts = value.split(`; ${name}=`);
+//   if (parts.length === 2) return parts.pop().split(';').shift();
+// }
+// const getCookie = ()=>{
+    
+    //     let cookieValue = '';
+    //     let cookieArray = new Array();
+    //     let result = new Array();
+      
+    //     //Get cookie
+    //     cookieValue = document.cookie;
+      
+    //     //Divide the cookie into an array and convert them to JSON
+    //     if(cookieValue){
+    //       cookieArray = cookieValue.split(';');
+            
+    //       cookieArray.forEach(data => {
+    //         data = data.split('=');
+      
+    //         //data[0]: Cookie name
+    //         //data[1]: Cookie value
+      
+    //         result[data[0][1]] = JSON.parse(data[1]);
+    //       });
+    //     }
+    //     return result;
+    //   }
+      
+    //  console.log( getCookie());
+     -->
