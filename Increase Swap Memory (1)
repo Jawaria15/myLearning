@@ -1,0 +1,9 @@
+sudo swapoff -a
+sudo dd if=/dev/zero of=/swapfile bs=1G count=8
+sudo chmod 0600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+grep Swap /proc/meminfo
+sudo gedit /etc/fstab
+paste this code:
+/swapfile swap swap sw 0 0
